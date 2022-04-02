@@ -1,0 +1,483 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 2 2
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Battery_Management:LT3652EDD U3
+U 1 1 6246EB4F
+P 5950 3350
+F 0 "U3" H 5950 4031 50  0000 C CNN
+F 1 "LT3652EDD" H 5950 3940 50  0000 C CNN
+F 2 "Package_DFN_QFN:DFN-12-1EP_3x3mm_P0.45mm_EP1.66x2.38mm" H 5950 2750 50  0001 C CNN
+F 3 "https://www.analog.com/media/en/technical-documentation/data-sheets/3652fe.pdf" H 6550 2550 50  0001 C CNN
+	1    5950 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J1
+U 1 1 624708AE
+P 1750 1550
+F 0 "J1" H 1668 1225 50  0000 C CNN
+F 1 "Screw_Terminal_SolarPanel_Input" H 1668 1316 50  0000 C CNN
+F 2 "" H 1750 1550 50  0001 C CNN
+F 3 "~" H 1750 1550 50  0001 C CNN
+	1    1750 1550
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1950 1550 2100 1550
+Wire Wire Line
+	2100 1550 2100 1650
+$Comp
+L power:GND #PWR0145
+U 1 1 62471654
+P 2100 1650
+F 0 "#PWR0145" H 2100 1400 50  0001 C CNN
+F 1 "GND" H 2105 1477 50  0000 C CNN
+F 2 "" H 2100 1650 50  0001 C CNN
+F 3 "" H 2100 1650 50  0001 C CNN
+	1    2100 1650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1950 1450 2350 1450
+Text Label 2350 1450 0    50   ~ 0
+V_solarpanel
+$Comp
+L power:GND #PWR0146
+U 1 1 62471EBA
+P 5950 3850
+F 0 "#PWR0146" H 5950 3600 50  0001 C CNN
+F 1 "GND" H 5955 3677 50  0000 C CNN
+F 2 "" H 5950 3850 50  0001 C CNN
+F 3 "" H 5950 3850 50  0001 C CNN
+	1    5950 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R8
+U 1 1 624726A8
+P 4700 3100
+F 0 "R8" H 4759 3146 50  0000 L CNN
+F 1 "120k" H 4759 3055 50  0000 L CNN
+F 2 "" H 4700 3100 50  0001 C CNN
+F 3 "~" H 4700 3100 50  0001 C CNN
+	1    4700 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0147
+U 1 1 624750CF
+P 4100 2700
+F 0 "#PWR0147" H 4100 2450 50  0001 C CNN
+F 1 "GND" V 4105 2572 50  0000 R CNN
+F 2 "" H 4100 2700 50  0001 C CNN
+F 3 "" H 4100 2700 50  0001 C CNN
+	1    4100 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C3
+U 1 1 62473EC1
+P 4100 2550
+F 0 "C3" H 3985 2504 50  0000 R CNN
+F 1 "10u" H 3985 2595 50  0000 R CNN
+F 2 "" H 4138 2400 50  0001 C CNN
+F 3 "~" H 4100 2550 50  0001 C CNN
+	1    4100 2550
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4700 3200 4700 3250
+$Comp
+L power:GND #PWR0148
+U 1 1 62479992
+P 4700 3600
+F 0 "#PWR0148" H 4700 3350 50  0001 C CNN
+F 1 "GND" H 4705 3427 50  0000 C CNN
+F 2 "" H 4700 3600 50  0001 C CNN
+F 3 "" H 4700 3600 50  0001 C CNN
+	1    4700 3600
+	1    0    0    -1  
+$EndComp
+Connection ~ 4700 3250
+Wire Wire Line
+	4700 3250 4700 3400
+Wire Wire Line
+	4700 2400 4700 3000
+Wire Wire Line
+	5950 2400 5950 2850
+Text Label 4000 2400 2    50   ~ 0
+V_solarpanel
+$Comp
+L Device:R_Small R10
+U 1 1 624745A9
+P 4900 2800
+F 0 "R10" H 4959 2846 50  0000 L CNN
+F 1 "10k" H 4959 2755 50  0000 L CNN
+F 2 "" H 4900 2800 50  0001 C CNN
+F 3 "~" H 4900 2800 50  0001 C CNN
+	1    4900 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED D7
+U 1 1 62475C18
+P 4900 2550
+F 0 "D7" V 4939 2432 50  0000 R CNN
+F 1 "LED" V 4848 2432 50  0000 R CNN
+F 2 "" H 4900 2550 50  0001 C CNN
+F 3 "~" H 4900 2550 50  0001 C CNN
+	1    4900 2550
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4900 2900 4900 3550
+$Comp
+L Device:R_Small R11
+U 1 1 62477790
+P 5100 2750
+F 0 "R11" H 5159 2796 50  0000 L CNN
+F 1 "10k" H 5159 2705 50  0000 L CNN
+F 2 "" H 5100 2750 50  0001 C CNN
+F 3 "~" H 5100 2750 50  0001 C CNN
+	1    5100 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED D8
+U 1 1 62477796
+P 5100 2550
+F 0 "D8" V 5139 2432 50  0000 R CNN
+F 1 "LED" V 5048 2432 50  0000 R CNN
+F 2 "" H 5100 2550 50  0001 C CNN
+F 3 "~" H 5100 2550 50  0001 C CNN
+	1    5100 2550
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5100 2850 5100 3450
+Wire Wire Line
+	4700 3250 5450 3250
+Connection ~ 4100 2400
+Wire Wire Line
+	4100 2400 4000 2400
+Wire Wire Line
+	4700 2400 4900 2400
+Connection ~ 4900 2400
+Connection ~ 5100 2400
+Wire Wire Line
+	4900 2400 5100 2400
+Wire Wire Line
+	5100 2400 5350 2400
+Wire Wire Line
+	4900 3550 5450 3550
+Wire Wire Line
+	5100 3450 5450 3450
+Wire Wire Line
+	5350 3050 5350 2400
+Connection ~ 5350 2400
+Wire Wire Line
+	5350 2400 5950 2400
+Wire Wire Line
+	5450 3050 5350 3050
+Wire Wire Line
+	5450 3650 5350 3650
+Wire Wire Line
+	5350 3650 5350 3800
+$Comp
+L power:GND #PWR0149
+U 1 1 6247E362
+P 5350 3800
+F 0 "#PWR0149" H 5350 3550 50  0001 C CNN
+F 1 "GND" H 5355 3627 50  0000 C CNN
+F 2 "" H 5350 3800 50  0001 C CNN
+F 3 "" H 5350 3800 50  0001 C CNN
+	1    5350 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R9
+U 1 1 62473769
+P 4700 3500
+F 0 "R9" H 4759 3546 50  0000 L CNN
+F 1 "100k" H 4759 3455 50  0000 L CNN
+F 2 "" H 4700 3500 50  0001 C CNN
+F 3 "~" H 4700 3500 50  0001 C CNN
+	1    4700 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R13
+U 1 1 6247F44B
+P 6800 3550
+F 0 "R13" H 6859 3596 50  0000 L CNN
+F 1 "560k" H 6859 3505 50  0000 L CNN
+F 2 "" H 6800 3550 50  0001 C CNN
+F 3 "~" H 6800 3550 50  0001 C CNN
+	1    6800 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6450 3450 6800 3450
+Wire Wire Line
+	6800 3650 6450 3650
+Wire Wire Line
+	6800 3650 6800 3700
+Connection ~ 6800 3650
+$Comp
+L Device:R_Small R14
+U 1 1 6248028F
+P 6800 3800
+F 0 "R14" H 6859 3846 50  0000 L CNN
+F 1 "450k" H 6859 3755 50  0000 L CNN
+F 2 "" H 6800 3800 50  0001 C CNN
+F 3 "~" H 6800 3800 50  0001 C CNN
+	1    6800 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0150
+U 1 1 62480AB0
+P 6800 3900
+F 0 "#PWR0150" H 6800 3650 50  0001 C CNN
+F 1 "GND" H 6805 3727 50  0000 C CNN
+F 2 "" H 6800 3900 50  0001 C CNN
+F 3 "" H 6800 3900 50  0001 C CNN
+	1    6800 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Thermistor:NXFT15XH103FA1B110 R12
+U 1 1 624843BF
+P 6450 4050
+F 0 "R12" H 6800 4305 50  0000 C CNN
+F 1 "NXFT15XH103FA1B110" H 6800 4214 50  0000 C CNN
+F 2 "Murata_Electronics_North_America-NXF_151B110-0-0-*" H 6450 4450 50  0001 L CNN
+F 3 "https://www.murata.com/en-us/products/productdetail?partno=NXFT15XH103FA1B110" H 6450 4550 50  0001 L CNN
+F 4 "No" H 6450 4650 50  0001 L CNN "automotive"
+F 5 "3455K" H 6450 4750 50  0001 L CNN "b 25 100"
+F 6 "3380K" H 6450 4850 50  0001 L CNN "b 25 50"
+F 7 "3434K" H 6450 4950 50  0001 L CNN "b 25 85"
+F 8 "1%" H 6450 5050 50  0001 L CNN "b tolerance"
+F 9 "Res" H 6450 5150 50  0001 L CNN "category"
+F 10 "Passive Components" H 6450 5250 50  0001 L CNN "device class L1"
+F 11 "Resistors" H 6450 5350 50  0001 L CNN "device class L2"
+F 12 "Thermistors" H 6450 5450 50  0001 L CNN "device class L3"
+F 13 "THERMISTOR NTC 10KOHM 3380K BEAD" H 6450 5550 50  0001 L CNN "digikey description"
+F 14 "NXFT15XH103FA1B110-ND" H 6450 5650 50  0001 L CNN "digikey part number"
+F 15 "Yes" H 6450 5750 50  0001 L CNN "lead free"
+F 16 "39b2a531d615b541" H 6450 5850 50  0001 L CNN "library id"
+F 17 "Murata Electronics North America" H 6450 5950 50  0001 L CNN "manufacturer"
+F 18 "0.12mA" H 6450 6050 50  0001 L CNN "max current"
+F 19 "Thermistors - NTC 0402 10k ohm+/-1% 3380K+/-1%" H 6450 6150 50  0001 L CNN "mouser description"
+F 20 "81-NXFT15XH103FA1B10" H 6450 6250 50  0001 L CNN "mouser part number"
+F 21 "RADIAL" H 6450 6350 50  0001 L CNN "package"
+F 22 "7.5mW" H 6450 6450 50  0001 L CNN "power rating"
+F 23 "10kΩ" H 6450 6550 50  0001 L CNN "resistance"
+F 24 "Yes" H 6450 6650 50  0001 L CNN "rohs"
+F 25 "NXF" H 6450 6750 50  0001 L CNN "series"
+F 26 "+125°C" H 6450 6850 50  0001 L CNN "temperature range high"
+F 27 "-40°C" H 6450 6950 50  0001 L CNN "temperature range low"
+F 28 "1%" H 6450 7050 50  0001 L CNN "tolerance"
+	1    6450 4050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6450 3550 6450 3650
+Connection ~ 6450 3650
+Wire Wire Line
+	6450 3650 6450 4150
+$Comp
+L power:GND #PWR0101
+U 1 1 6248D5BE
+P 6450 4650
+F 0 "#PWR0101" H 6450 4400 50  0001 C CNN
+F 1 "GND" H 6455 4477 50  0000 C CNN
+F 2 "" H 6450 4650 50  0001 C CNN
+F 3 "" H 6450 4650 50  0001 C CNN
+	1    6450 4650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6800 3450 7250 3450
+Connection ~ 6800 3450
+$Comp
+L Device:C C5
+U 1 1 6248E6D1
+P 7250 3600
+F 0 "C5" H 7135 3554 50  0000 R CNN
+F 1 "10u" H 7135 3645 50  0000 R CNN
+F 2 "" H 7288 3450 50  0001 C CNN
+F 3 "~" H 7250 3600 50  0001 C CNN
+	1    7250 3600
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0102
+U 1 1 6248F76C
+P 7250 3750
+F 0 "#PWR0102" H 7250 3500 50  0001 C CNN
+F 1 "GND" H 7255 3577 50  0000 C CNN
+F 2 "" H 7250 3750 50  0001 C CNN
+F 3 "" H 7250 3750 50  0001 C CNN
+	1    7250 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R15
+U 1 1 624905D0
+P 7900 3350
+F 0 "R15" V 8096 3350 50  0000 C CNN
+F 1 "0.05" V 8005 3350 50  0000 C CNN
+F 2 "" H 7900 3350 50  0001 C CNN
+F 3 "~" H 7900 3350 50  0001 C CNN
+	1    7900 3350
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6450 2950 6800 2950
+Wire Wire Line
+	6450 3250 6800 3250
+$Comp
+L Device:C C4
+U 1 1 62493334
+P 6800 3100
+F 0 "C4" H 6685 3054 50  0000 R CNN
+F 1 "1u" H 6685 3145 50  0000 R CNN
+F 2 "" H 6838 2950 50  0001 C CNN
+F 3 "~" H 6800 3100 50  0001 C CNN
+	1    6800 3100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6450 3050 6450 2950
+$Comp
+L Device:D D9
+U 1 1 624944CC
+P 7100 3250
+F 0 "D9" H 7100 3467 50  0000 C CNN
+F 1 "D" H 7100 3376 50  0000 C CNN
+F 2 "" H 7100 3250 50  0001 C CNN
+F 3 "~" H 7100 3250 50  0001 C CNN
+	1    7100 3250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7250 3450 7250 3250
+Connection ~ 7250 3450
+$Comp
+L Device:L L1
+U 1 1 624961AE
+P 7550 3100
+F 0 "L1" H 7602 3146 50  0000 L CNN
+F 1 "10u" H 7602 3055 50  0000 L CNN
+F 2 "" H 7550 3100 50  0001 C CNN
+F 3 "~" H 7550 3100 50  0001 C CNN
+	1    7550 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6800 2950 7550 2950
+Connection ~ 6800 2950
+Wire Wire Line
+	6450 3350 7550 3350
+Wire Wire Line
+	7550 3250 7550 3350
+Connection ~ 7550 3350
+Wire Wire Line
+	6950 3250 6800 3250
+Connection ~ 6800 3250
+Wire Wire Line
+	7550 3350 7800 3350
+$Comp
+L Connector:Screw_Terminal_01x02 J2
+U 1 1 6249CBEB
+P 8400 3600
+F 0 "J2" H 8318 3275 50  0000 C CNN
+F 1 "Screw_Terminal_Battery" H 8318 3366 50  0000 C CNN
+F 2 "" H 8400 3600 50  0001 C CNN
+F 3 "~" H 8400 3600 50  0001 C CNN
+	1    8400 3600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7250 3450 8000 3450
+Wire Wire Line
+	8200 3700 8100 3700
+Wire Wire Line
+	8100 3700 8100 4000
+$Comp
+L power:GND #PWR0103
+U 1 1 6249EAD3
+P 8100 4000
+F 0 "#PWR0103" H 8100 3750 50  0001 C CNN
+F 1 "GND" H 8105 3827 50  0000 C CNN
+F 2 "" H 8100 4000 50  0001 C CNN
+F 3 "" H 8100 4000 50  0001 C CNN
+	1    8100 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8000 3350 8000 3450
+Connection ~ 8000 3450
+Wire Wire Line
+	8000 3450 8200 3450
+$Comp
+L Device:D_Schottky D10
+U 1 1 624A075A
+P 7700 2950
+F 0 "D10" H 7700 3167 50  0000 C CNN
+F 1 "D_Schottky" H 7700 3076 50  0000 C CNN
+F 2 "" H 7700 2950 50  0001 C CNN
+F 3 "~" H 7700 2950 50  0001 C CNN
+	1    7700 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7850 2950 8150 2950
+Wire Wire Line
+	8150 2950 8150 3050
+$Comp
+L power:GND #PWR0115
+U 1 1 624A16B8
+P 8150 3050
+F 0 "#PWR0115" H 8150 2800 50  0001 C CNN
+F 1 "GND" H 8155 2877 50  0000 C CNN
+F 2 "" H 8150 3050 50  0001 C CNN
+F 3 "" H 8150 3050 50  0001 C CNN
+	1    8150 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D_Schottky D6
+U 1 1 624A6076
+P 4550 2400
+F 0 "D6" H 4550 2617 50  0000 C CNN
+F 1 "D_Schottky" H 4550 2526 50  0000 C CNN
+F 2 "" H 4550 2400 50  0001 C CNN
+F 3 "~" H 4550 2400 50  0001 C CNN
+	1    4550 2400
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4100 2400 4400 2400
+Wire Wire Line
+	8200 3450 8200 3600
+Wire Wire Line
+	8200 3450 8700 3450
+Connection ~ 8200 3450
+Text HLabel 8700 3450 2    50   Input ~ 0
+VDD
+$EndSCHEMATC
