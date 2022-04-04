@@ -327,6 +327,10 @@
     [
       "761ca562-7e61-4873-a476-3f17aaa1ae77",
       "usb_to_uart"
+    ],
+    [
+      "1cf3aab9-4829-448a-a3c1-5a595217a91d",
+      "Storage"
     ]
   ],
   "text_variables": {}
