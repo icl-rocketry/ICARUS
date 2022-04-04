@@ -1,4 +1,5 @@
 (sym_lib_table
-  (lib (name power_new_18122021-rescue)(type Legacy)(uri ${KIPRJMOD}/power_new_18122021-rescue.lib)(options "")(descr ""))
-  (lib (name power_new_25012022-rescue)(type Legacy)(uri ${KIPRJMOD}/power_new_25012022-rescue.lib)(options "")(descr ""))
+  (lib (name "power_new_18122021-rescue")(type "Legacy")(uri "${KIPRJMOD}/power_new_18122021-rescue.lib")(options "")(descr ""))
+  (lib (name "power_new_25012022-rescue")(type "Legacy")(uri "${KIPRJMOD}/power_new_25012022-rescue.lib")(options "")(descr ""))
+  (lib (name "solarpowerPCB-rescue")(type "Legacy")(uri "${KIPRJMOD}/solarpowerPCB-rescue.lib")(options "")(descr ""))
 )
