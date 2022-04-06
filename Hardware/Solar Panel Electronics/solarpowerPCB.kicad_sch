@@ -2118,7 +2118,7 @@
     (in_bom yes) (on_board yes)
     (uuid 1f09064c-e499-499a-9b24-bcf0b1a4233f)
     (property "Reference" "R?" (id 0) (at 44.45 156.3116 90))
-    (property "Value" "" (id 1) (at 44.45 158.623 90))
+    (property "Value" "0" (id 1) (at 44.45 158.623 90))
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (id 2) (at 44.45 161.29 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -2133,7 +2133,7 @@
     (in_bom yes) (on_board yes)
     (uuid 22b901a1-74a9-4223-b48f-4548fa7f373d)
     (property "Reference" "R?" (id 0) (at 81.28 156.3116 90))
-    (property "Value" "" (id 1) (at 81.28 158.623 90))
+    (property "Value" "0" (id 1) (at 81.28 158.623 90))
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (id 2) (at 81.28 161.29 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -2551,7 +2551,7 @@
     (property "Reference" "#PWR?" (id 0) (at 33.02 74.93 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "" (id 1) (at 33.02 66.04 0))
+    (property "Value" "+3.3V" (id 1) (at 33.02 66.04 0))
     (property "Footprint" "" (id 2) (at 33.02 71.12 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -2725,7 +2725,7 @@
     (in_bom yes) (on_board yes)
     (uuid e1d644da-eaa2-4ad9-82f7-0b3b22e0b70c)
     (property "Reference" "C?" (id 0) (at 33.02 172.1866 90))
-    (property "Value" "" (id 1) (at 33.02 169.8752 90))
+    (property "Value" "1uF" (id 1) (at 33.02 169.8752 90))
     (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (id 2) (at 33.02 166.37 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -2757,7 +2757,7 @@
     (property "Reference" "#PWR?" (id 0) (at 33.02 88.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "" (id 1) (at 33.02 87.63 0))
+    (property "Value" "GND" (id 1) (at 33.02 87.63 0))
     (property "Footprint" "" (id 2) (at 33.02 82.55 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -2808,7 +2808,7 @@
     (property "Sheet file" "solar_charger.kicad_sch" (id 1) (at 219.71 151.7146 0)
       (effects (font (size 1.27 1.27)) (justify left top))
     )
-    (pin "VDD" output (at 255.27 134.62 0)
+    (pin "Vout" output (at 255.27 134.62 0)
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid ac125cf9-ca75-41d3-a106-8f8db985d5c8)
     )
@@ -2878,9 +2878,6 @@
   )
 
   (symbol_instances
-    (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-00006248d5be"
-      (reference "#PWR0101") (unit 1) (value "GND") (footprint "")
-    )
     (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-00006248f76c"
       (reference "#PWR0102") (unit 1) (value "GND") (footprint "")
     )
@@ -3093,6 +3090,9 @@
     )
     (path "/761ca562-7e61-4873-a476-3f17aaa1ae77/6fa1a11b-f2f3-4729-94bb-e36af7ef1c23"
       (reference "D?") (unit 1) (value "USB_LED") (footprint "LED_SMD:LED_0603_1608Metric")
+    )
+    (path "/00000000-0000-0000-0000-0000624b2440/73f4fb04-7f3b-4979-a37a-df6982c73ad3"
+      (reference "D?") (unit 1) (value "D_Schottky") (footprint "")
     )
     (path "/761ca562-7e61-4873-a476-3f17aaa1ae77/9d8eb635-b541-4cc6-a0c2-2d8a2a232914"
       (reference "D?") (unit 1) (value "SP0503BAHT") (footprint "Package_TO_SOT_SMD:SOT-143")
