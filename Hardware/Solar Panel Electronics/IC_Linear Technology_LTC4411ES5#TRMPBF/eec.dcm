@@ -1,0 +1,7 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LTC4411ES5#TRMPBF
+D LTC4411ES5#TRMPBF
+F http://cds.linear.com/docs/en/datasheet/4411fa.pdf
+$ENDCMP
+# end doc library
