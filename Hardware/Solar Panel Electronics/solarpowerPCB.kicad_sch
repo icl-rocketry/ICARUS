@@ -2870,11 +2870,28 @@
     )
   )
 
+  (sheet (at 234.95 88.9) (size 31.75 16.51) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid) (color 0 0 0 0))
+    (fill (color 0 0 0 0.0000))
+    (uuid bc16b27f-da78-4399-84ff-d0e67df4623d)
+    (property "Sheet name" "VoltageReg" (id 0) (at 234.95 88.1884 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheet file" "VoltageReg.kicad_sch" (id 1) (at 234.95 105.9946 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (pin "Vout" input (at 234.95 92.71 180)
+      (effects (font (size 1.27 1.27)) (justify left))
+      (uuid 1af43763-3b27-4425-87c8-f259c2f5ba94)
+    )
+  )
+
   (sheet_instances
     (path "/" (page "1"))
     (path "/00000000-0000-0000-0000-0000624b2440" (page "2"))
     (path "/761ca562-7e61-4873-a476-3f17aaa1ae77" (page "3"))
     (path "/1cf3aab9-4829-448a-a3c1-5a595217a91d" (page "4"))
+    (path "/bc16b27f-da78-4399-84ff-d0e67df4623d" (page "5"))
   )
 
   (symbol_instances
@@ -3001,6 +3018,18 @@
     (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-000062480ab0"
       (reference "#PWR0150") (unit 1) (value "GND") (footprint "")
     )
+    (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/471eb4c1-1fb6-4731-b769-cc81195874cc"
+      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/756c57ca-b724-416e-bbc3-080fcadffb70"
+      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/b0d1f2d1-6661-413f-b789-5e4612cfd11c"
+      (reference "#PWR?") (unit 1) (value "+3V3") (footprint "")
+    )
+    (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/ce052e62-9895-4eaf-b763-02bb1f2f2fc0"
+      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
+    )
     (path "/00000000-0000-0000-0000-0000620b2ec1"
       (reference "C1") (unit 1) (value "C_Small") (footprint "")
     )
@@ -3060,6 +3089,15 @@
     )
     (path "/1cf3aab9-4829-448a-a3c1-5a595217a91d/c9cc5d90-3905-4c4f-881c-5deaaf5728b3"
       (reference "C20") (unit 1) (value "10uF") (footprint "")
+    )
+    (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/53eb5fc0-41cc-43ad-8003-3a7163adca82"
+      (reference "C?") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_0603_1608Metric")
+    )
+    (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/b54d57a7-95c9-46b9-bf84-99ca3de4bc2a"
+      (reference "C?") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_0603_1608Metric")
+    )
+    (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/e4c50208-faff-4dc6-92f3-177bc479ae49"
+      (reference "C?") (unit 1) (value "100nF") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/0b74af2e-d916-4a23-ae3b-0ce9a9c64af1"
       (reference "D1") (unit 1) (value "SM712_SOT23") (footprint "Package_TO_SOT_SMD:SOT-23")
@@ -3243,6 +3281,9 @@
     )
     (path "/761ca562-7e61-4873-a476-3f17aaa1ae77/382aa5e0-6464-4fb9-aeff-2552de9d6681"
       (reference "U5") (unit 1) (value "INTERFACE-CP2102-GMR(QFN28)") (footprint "iclr:QFN28G_0.5-5X5MM")
+    )
+    (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/ec7425db-97df-4e3f-a1d9-7fa3fa52762c"
+      (reference "U?") (unit 1) (value "LT1963AxST-3.3") (footprint "Package_TO_SOT_SMD:SOT-223-3_TabPin2")
     )
   )
 )

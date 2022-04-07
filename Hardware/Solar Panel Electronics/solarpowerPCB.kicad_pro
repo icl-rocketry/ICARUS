@@ -331,6 +331,10 @@
     [
       "1cf3aab9-4829-448a-a3c1-5a595217a91d",
       "Storage"
+    ],
+    [
+      "bc16b27f-da78-4399-84ff-d0e67df4623d",
+      "VoltageReg"
     ]
   ],
   "text_variables": {}
