@@ -1,0 +1,61 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# TI National Semiconductor LM358M/NOPB
+#
+DEF LM358M_NOPB U 0 40 Y Y 2 L N
+F0 "U" 0 300 50 H V L CNN 
+F1 "LM358M/NOPB" 0 400 50 H V L CNN 
+F2 "TI_National_Semiconductor-LM358M_NOPB-*" 0 500 50 H I L CNN 
+F3 "" 0 600 50 H I L CNN 
+F4 "SOIC127P600-8" 0 700 50 H I L CNN "Code  IPC"
+F5 "" 0 800 50 H I L CNN "Code  JEITA"
+F6 "Amplifiers" 0 900 50 H I L CNN "Comp Type"
+F7 "Datasheet URL" 0 1000 50 H I L CNN "Component Link 1 Description"
+F8 "http://www.ti.com/general/docs/lit/getliterature.tsp?genericPartNumber=LM358-N&fileType=pdf" 0 1100 50 H I L CNN "Component Link 1 URL"
+F9 "" 0 1200 50 H I L CNN "High  Reliability"
+F10 "SOIC Narrow, 4.9 x 3.9 x 1.45mm, 8 Lead, 1.27mm Pitch" 0 1300 50 H I L CNN "Package Description"
+F11 "D0008A" 0 1400 50 H I L CNN "Package Reference"
+F12 "NSZXTT*LM*358M" 0 1500 50 H I L CNN "Package Top Marking"
+F13 "8" 0 1600 50 H I L CNN "Pin Count"
+F14 "N" 0 1700 50 H I L CNN "Power Wise"
+F15 "IC" 0 1800 50 H I L CNN "category"
+F16 "1322813" 0 1900 50 H I L CNN "ciiva ids"
+F17 "567d2920cc3b3d5d" 0 2000 50 H I L CNN "library id"
+F18 "TI National Semiconductor" 0 2100 50 H I L CNN "manufacturer"
+F19 "MS-012-AA" 0 2200 50 H I L CNN "package"
+F20 "1464069115" 0 2300 50 H I L CNN "release date"
+F21 "Yes" 0 2400 50 H I L CNN "rohs"
+F22 "23FD94CE-C9A4-4CAC-9695-7E3F5FDDC9F3" 0 2500 50 H I L CNN "vault revision"
+F23 "yes" 0 2600 50 H I L CNN "imported"
+DRAW
+X INA+ 3 100 -200 100 R 40 0 1 1 I 
+X INA- 2 100 0 100 R 40 0 1 1 I 
+X OUTA 1 700 -100 100 L 40 0 1 1 O 
+X V+ 8 400 200 100 D 40 0 1 1 W 
+X GND 4 400 -400 100 U 40 0 1 1 W 
+P 2 1 1 0 200 100 600 -100 N
+P 2 1 1 0 200 -300 600 -100 N
+P 2 1 1 0 200 100 200 -300 N
+P 2 1 1 0 240 0 300 0 N
+P 2 1 1 0 240 -200 300 -200 N
+P 2 1 1 0 270 -170 270 -230 N
+P 2 1 1 0 400 100 400 0 N
+P 2 1 1 0 400 -200 400 -300 N
+X INB- 6 100 0 100 R 40 0 2 1 I 
+X INB+ 5 100 -200 100 R 40 0 2 1 I 
+X OUTB 7 700 -100 100 L 40 0 2 1 O 
+X V+ 8 400 200 100 D 40 0 2 1 W 
+X GND 4 400 -400 100 U 40 0 2 1 W 
+P 2 2 1 0 200 100 600 -100 N
+P 2 2 1 0 200 -300 600 -100 N
+P 2 2 1 0 200 100 200 -300 N
+P 2 2 1 0 240 0 300 0 N
+P 2 2 1 0 240 -200 300 -200 N
+P 2 2 1 0 270 -170 270 -230 N
+P 2 2 1 0 400 100 400 0 N
+P 2 2 1 0 400 -200 400 -300 N
+ENDDRAW
+ENDDEF
+#
+# End Library

@@ -339,6 +339,10 @@
     [
       "b081b074-3171-4535-9bf1-f0e71da78e2a",
       "ADC"
+    ],
+    [
+      "d920c631-35e0-4621-a5cd-83ddbe489361",
+      "SolarWattmeter"
     ]
   ],
   "text_variables": {}
