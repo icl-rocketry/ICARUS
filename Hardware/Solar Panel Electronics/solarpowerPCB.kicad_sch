@@ -2579,7 +2579,7 @@
     (property "Reference" "R?" (id 0) (at 110.49 172.72 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "" (id 1) (at 107.95 175.26 0)
+    (property "Value" "4.7k" (id 1) (at 107.95 175.26 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "" (id 2) (at 114.3 173.99 0)
@@ -3221,7 +3221,7 @@
     (property "Reference" "R?" (id 0) (at 120.65 172.7199 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "" (id 1) (at 120.65 175.2599 0)
+    (property "Value" "4.7k" (id 1) (at 120.65 175.2599 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "" (id 2) (at 118.11 173.99 0)
@@ -3491,8 +3491,17 @@
     (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-000062480ab0"
       (reference "#PWR0150") (unit 1) (value "GND") (footprint "")
     )
+    (path "/00000000-0000-0000-0000-0000624b2440/16846add-8613-4d5b-80f8-47bb821442f4"
+      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-0000624b2440/2139c0d5-fd19-4edc-98d3-72c046a88978"
+      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
+    )
     (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/2486d1b0-d5d1-4e35-85d8-e13a0287ad93"
       (reference "#PWR?") (unit 1) (value "~") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-0000624b2440/31eff159-32a2-408b-bbd4-e68aecc2eed2"
+      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
     )
     (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/46479943-c593-4529-bc99-371d4cd18e4c"
       (reference "#PWR?") (unit 1) (value "+3.3V") (footprint "")
@@ -3509,6 +3518,9 @@
     (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/53c26380-c310-4fc2-b6dd-ae4da270cbc3"
       (reference "#PWR?") (unit 1) (value "~") (footprint "")
     )
+    (path "/00000000-0000-0000-0000-0000624b2440/56d5a663-a675-43d4-9149-36082330973d"
+      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
+    )
     (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/756c57ca-b724-416e-bbc3-080fcadffb70"
       (reference "#PWR?") (unit 1) (value "GND") (footprint "")
     )
@@ -3519,6 +3531,9 @@
       (reference "#PWR?") (unit 1) (value "~") (footprint "")
     )
     (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/8ea8409d-97a1-4c93-8068-5c2ae0f77443"
+      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-0000624b2440/9656bcd2-551d-4721-9723-a3556e1de2b8"
       (reference "#PWR?") (unit 1) (value "GND") (footprint "")
     )
     (path "/a5d81433-1591-493c-9981-6bad61f721d4"
@@ -3651,10 +3666,10 @@
       (reference "D6") (unit 1) (value "CMSH1-20MA") (footprint "")
     )
     (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-000062475c18"
-      (reference "D7") (unit 1) (value "LED") (footprint "")
+      (reference "D7") (unit 1) (value "FAULT LED") (footprint "")
     )
     (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-000062477796"
-      (reference "D8") (unit 1) (value "LED") (footprint "")
+      (reference "D8") (unit 1) (value "CHRG LED") (footprint "")
     )
     (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-0000624944cc"
       (reference "D9") (unit 1) (value "D") (footprint "")
@@ -3674,9 +3689,6 @@
     (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-0000624708ae"
       (reference "J1") (unit 1) (value "Screw_Terminal_SolarPanel_Input") (footprint "")
     )
-    (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-00006249cbeb"
-      (reference "J2") (unit 1) (value "Screw_Terminal_Battery") (footprint "")
-    )
     (path "/281488e8-d376-4880-a2b5-28296fef7666"
       (reference "J3") (unit 1) (value "Conn_01x02_Male") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
     )
@@ -3691,6 +3703,27 @@
     )
     (path "/1cf3aab9-4829-448a-a3c1-5a595217a91d/d4a89851-f343-4a84-b3cb-1339eebcb206"
       (reference "J7") (unit 1) (value "~") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-0000624b2440/13dd92b6-06ca-4e0b-9ee3-12c7f508706e"
+      (reference "J?") (unit 1) (value "Screw_Terminal_SolarPanel_Input") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-0000624b2440/357ce087-9bb2-449e-8dc8-378603d15219"
+      (reference "J?") (unit 1) (value "Screw_Terminal_SolarPanel_Input") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-0000624b2440/3e1b740f-8858-4a54-b870-20ebb9090e12"
+      (reference "J?") (unit 1) (value "Screw_Terminal_SolarPanel_Input") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-0000624b2440/6cdc5bbd-bc8d-46ac-a385-b458b224ce28"
+      (reference "J?") (unit 1) (value "Conn_01x02_Male") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-0000624b2440/752b3695-5f89-4c59-a33a-3588ae69b756"
+      (reference "J?") (unit 1) (value "Screw_Terminal_SolarPanel_Input") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-0000624b2440/88ab8186-6b6a-48ca-8429-2e699b219df1"
+      (reference "J?") (unit 1) (value "Battery Connector") (footprint "Connector_JST:JST_ACH_BM02B-ACHSS-GAN-ETF_1x02-1MP_P1.20mm_Vertical")
+    )
+    (path "/00000000-0000-0000-0000-0000624b2440/bb6c885b-4252-4449-bc79-7ef98520d17d"
+      (reference "J?") (unit 1) (value "Screw_Terminal_SolarPanel_Input") (footprint "")
     )
     (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/fc728988-eca1-4a8e-8ed8-022e113a9c98"
       (reference "J?") (unit 1) (value "~") (footprint "")
@@ -3751,9 +3784,6 @@
     )
     (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-000062477790"
       (reference "R11") (unit 1) (value "10k") (footprint "")
-    )
-    (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-0000624843bf"
-      (reference "R12") (unit 1) (value "NXFT15XH103FA1B110") (footprint "Murata_Electronics_North_America-NXF_151B110-0-0-*")
     )
     (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-00006247f44b"
       (reference "R13") (unit 1) (value "560k") (footprint "")
@@ -3853,6 +3883,15 @@
     )
     (path "/761ca562-7e61-4873-a476-3f17aaa1ae77/f131d825-9048-4d68-851d-a47ef862d303"
       (reference "TP5") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_Pad_D1.0mm")
+    )
+    (path "/00000000-0000-0000-0000-0000624b2440/89425070-2cf4-40a0-b141-4db438b807a5"
+      (reference "TP?") (unit 1) (value "TP_BAT") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-0000624b2440/a6e67203-b292-4b44-a752-28ae4206406d"
+      (reference "TP?") (unit 1) (value "TP_Vout") (footprint "")
+    )
+    (path "/00000000-0000-0000-0000-0000624b2440/b5071fcf-b3e7-4725-a3db-bca61fd551be"
+      (reference "TP?") (unit 1) (value "TP_Vsolarpanel") (footprint "")
     )
     (path "/c025e6d2-e820-404e-abc2-337eef32c295"
       (reference "U1") (unit 1) (value "SN65HVD230") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
