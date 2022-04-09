@@ -483,7 +483,7 @@
     (in_bom yes) (on_board yes)
     (uuid d4a89851-f343-4a84-b3cb-1339eebcb206)
     (property "Reference" "J7" (id 0) (at 165.1 75.7682 0))
-    (property "Value" "~" (id 1) (at 165.1 78.0796 0))
+    (property "Value" "" (id 1) (at 165.1 78.0796 0))
     (property "Footprint" "" (id 2) (at 195.58 86.36 0)
       (effects (font (size 1.27 1.27)) hide)
     )
