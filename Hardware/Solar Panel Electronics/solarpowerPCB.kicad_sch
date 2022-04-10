@@ -2695,7 +2695,7 @@
   (symbol (lib_id "Device:L") (at 137.16 26.67 90) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 281cba2a-9a0d-4ba9-ae02-4851a4d5ef54)
-    (property "Reference" "L?" (id 0) (at 137.16 21.844 90))
+    (property "Reference" "L3" (id 0) (at 137.16 21.844 90))
     (property "Value" "LQG15WZ1N8B02D" (id 1) (at 137.16 24.1554 90))
     (property "Footprint" "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder" (id 2) (at 137.16 26.67 0)
       (effects (font (size 1.27 1.27)) hide)
@@ -2810,7 +2810,7 @@
   (symbol (lib_id "Device:C_Small") (at 140.97 31.75 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 43108d1f-6fab-4012-bb34-effc39df9879)
-    (property "Reference" "C?" (id 0) (at 143.3068 30.5816 0)
+    (property "Reference" "C39" (id 0) (at 143.3068 30.5816 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100pF" (id 1) (at 143.3068 32.893 0)
@@ -2885,7 +2885,7 @@
   (symbol (lib_id "Device:C_Small") (at 133.35 31.75 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 58323f1b-ca2a-4c1d-b699-a594d763332c)
-    (property "Reference" "C?" (id 0) (at 128.27 30.48 0)
+    (property "Reference" "C38" (id 0) (at 128.27 30.48 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "33pF" (id 1) (at 125.73 33.02 0)
@@ -2935,7 +2935,7 @@
   (symbol (lib_id "iclr:AMCA31-2R450G-S1F-T3") (at 146.05 26.67 270) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 661e63a6-57d4-4bd6-8435-e9e47baf2ef9)
-    (property "Reference" "ANT?" (id 0) (at 154.7876 25.3746 90)
+    (property "Reference" "ANT1" (id 0) (at 154.7876 25.3746 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "AMCA31-2R450G-S1F-T3" (id 1) (at 154.7876 27.686 90)
@@ -2965,7 +2965,7 @@
   (symbol (lib_id "power:GND") (at 133.35 34.29 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 673f1a23-6661-4620-90df-f91c1a23f2f1)
-    (property "Reference" "#PWR?" (id 0) (at 133.35 40.64 0)
+    (property "Reference" "#PWR0136" (id 0) (at 133.35 40.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (id 1) (at 133.477 38.6842 0))
@@ -3402,7 +3402,7 @@
   (symbol (lib_id "power:GND") (at 140.97 34.29 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid d476ee99-f915-47bb-bc5d-98e60df88272)
-    (property "Reference" "#PWR?" (id 0) (at 140.97 40.64 0)
+    (property "Reference" "#PWR0137" (id 0) (at 140.97 40.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (id 1) (at 141.097 38.6842 0))
@@ -3884,6 +3884,15 @@
     (path "/1cf3aab9-4829-448a-a3c1-5a595217a91d/c7c47449-9654-4a8b-9e34-7a1560397eaa"
       (reference "#PWR0135") (unit 1) (value "+3.3V") (footprint "")
     )
+    (path "/673f1a23-6661-4620-90df-f91c1a23f2f1"
+      (reference "#PWR0136") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/d476ee99-f915-47bb-bc5d-98e60df88272"
+      (reference "#PWR0137") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/a8cbb7ea-4783-4a46-908f-66157147a7f8"
+      (reference "#PWR0138") (unit 1) (value "GND") (footprint "")
+    )
     (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-000062471654"
       (reference "#PWR0145") (unit 1) (value "GND") (footprint "")
     )
@@ -3902,14 +3911,8 @@
     (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-000062480ab0"
       (reference "#PWR0150") (unit 1) (value "GND") (footprint "")
     )
-    (path "/673f1a23-6661-4620-90df-f91c1a23f2f1"
-      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
-    )
-    (path "/d476ee99-f915-47bb-bc5d-98e60df88272"
-      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
-    )
     (path "/661e63a6-57d4-4bd6-8435-e9e47baf2ef9"
-      (reference "ANT?") (unit 1) (value "AMCA31-2R450G-S1F-T3") (footprint "iclr:ANT_AMCA31-2R450G-S1F-T3")
+      (reference "ANT1") (unit 1) (value "AMCA31-2R450G-S1F-T3") (footprint "iclr:ANT_AMCA31-2R450G-S1F-T3")
     )
     (path "/00000000-0000-0000-0000-0000620b2ec1"
       (reference "C1") (unit 1) (value "C_Small") (footprint "Capacitor_SMD:C_0603_1608Metric")
@@ -4022,11 +4025,11 @@
     (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/c8385bae-c504-4909-9bb4-fecd33d11d42"
       (reference "C37") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
-    (path "/43108d1f-6fab-4012-bb34-effc39df9879"
-      (reference "C?") (unit 1) (value "100pF") (footprint "Capacitor_SMD:C_0603_1608Metric")
-    )
     (path "/58323f1b-ca2a-4c1d-b699-a594d763332c"
-      (reference "C?") (unit 1) (value "33pF") (footprint "Capacitor_SMD:C_0603_1608Metric")
+      (reference "C38") (unit 1) (value "33pF") (footprint "Capacitor_SMD:C_0603_1608Metric")
+    )
+    (path "/43108d1f-6fab-4012-bb34-effc39df9879"
+      (reference "C39") (unit 1) (value "100pF") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/0b74af2e-d916-4a23-ae3b-0ce9a9c64af1"
       (reference "D1") (unit 1) (value "SM712_SOT23") (footprint "Package_TO_SOT_SMD:SOT-23")
@@ -4089,7 +4092,7 @@
       (reference "J6") (unit 1) (value "USB_C_Receptacle_USB2.0") (footprint "Connector_USB:USB_C_Receptacle_GCT_USB4085")
     )
     (path "/1cf3aab9-4829-448a-a3c1-5a595217a91d/d4a89851-f343-4a84-b3cb-1339eebcb206"
-      (reference "J7") (unit 1) (value "~") (footprint "Connector_Card:microSD_HC_Hirose_DM3AT-SF-PEJM5")
+      (reference "J7") (unit 1) (value "~") (footprint "Connector_Card:microSD_HC_Wuerth_693072010801")
     )
     (path "/00000000-0000-0000-0000-0000624b2440/357ce087-9bb2-449e-8dc8-378603d15219"
       (reference "J8") (unit 1) (value "Screw_Terminal_SolarPanel_Input") (footprint "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal")
@@ -4109,6 +4112,9 @@
     (path "/00000000-0000-0000-0000-0000624b2440/88ab8186-6b6a-48ca-8429-2e699b219df1"
       (reference "J13") (unit 1) (value "Battery Connector") (footprint "Connector_JST:JST_ACH_BM02B-ACHSS-GAN-ETF_1x02-1MP_P1.20mm_Vertical")
     )
+    (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/12783491-f223-4d6c-b1a2-c1bcbb00a602"
+      (reference "J14") (unit 1) (value "Screw_Terminal_5VRail") (footprint "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal")
+    )
     (path "/b5ffdb69-0d10-4e56-a878-ea9fd431e3ac"
       (reference "JP1") (unit 1) (value "SolderJumper_2_Open") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm")
     )
@@ -4119,7 +4125,7 @@
       (reference "L2") (unit 1) (value "L") (footprint "Inductor_SMD:L_0603_1608Metric")
     )
     (path "/281cba2a-9a0d-4ba9-ae02-4851a4d5ef54"
-      (reference "L?") (unit 1) (value "LQG15WZ1N8B02D") (footprint "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder")
+      (reference "L3") (unit 1) (value "LQG15WZ1N8B02D") (footprint "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder")
     )
     (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/a79c1d38-64a3-45f9-8914-483eb10099cb"
       (reference "Patch1") (unit 1) (value "~") (footprint "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal")
