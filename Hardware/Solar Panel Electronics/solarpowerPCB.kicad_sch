@@ -2344,7 +2344,11 @@
     (property "Value" "C_Small" (id 1) (at 131.8768 54.483 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
+<<<<<<< Updated upstream
     (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (id 2) (at 129.54 53.34 0)
+=======
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (id 2) (at 129.54 41.91 0)
+>>>>>>> Stashed changes
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 129.54 53.34 0)
@@ -2363,7 +2367,11 @@
     (property "Value" "C_Small" (id 1) (at 136.9568 54.483 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
+<<<<<<< Updated upstream
     (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (id 2) (at 134.62 53.34 0)
+=======
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (id 2) (at 134.62 41.91 0)
+>>>>>>> Stashed changes
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 134.62 53.34 0)
@@ -2398,7 +2406,11 @@
     (property "Value" "R_Small" (id 1) (at 161.5186 54.483 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
+<<<<<<< Updated upstream
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (id 2) (at 160.02 53.34 0)
+=======
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (id 2) (at 160.02 41.91 0)
+>>>>>>> Stashed changes
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 160.02 53.34 0)
@@ -2417,7 +2429,11 @@
     (property "Value" "LED" (id 1) (at 163.0172 61.0108 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
+<<<<<<< Updated upstream
     (property "Footprint" "LED_SMD:LED_0603_1608Metric" (id 2) (at 160.02 59.69 0)
+=======
+    (property "Footprint" "LED_SMD:LED_0603_1608Metric" (id 2) (at 160.02 48.26 0)
+>>>>>>> Stashed changes
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 160.02 59.69 0)
@@ -2452,7 +2468,11 @@
     (property "Value" "R_Small" (id 1) (at 181.483 79.7814 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
+<<<<<<< Updated upstream
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (id 2) (at 180.34 81.28 0)
+=======
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (id 2) (at 180.34 69.85 0)
+>>>>>>> Stashed changes
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 180.34 81.28 0)
@@ -2471,7 +2491,11 @@
     (property "Value" "LED" (id 1) (at 188.0108 78.2828 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
+<<<<<<< Updated upstream
     (property "Footprint" "LED_SMD:LED_0603_1608Metric" (id 2) (at 186.69 81.28 0)
+=======
+    (property "Footprint" "LED_SMD:LED_0603_1608Metric" (id 2) (at 186.69 69.85 0)
+>>>>>>> Stashed changes
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 186.69 81.28 0)
@@ -2490,7 +2514,11 @@
     (property "Value" "R_Small" (id 1) (at 181.483 84.8614 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
+<<<<<<< Updated upstream
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (id 2) (at 180.34 86.36 0)
+=======
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (id 2) (at 180.34 74.93 0)
+>>>>>>> Stashed changes
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 180.34 86.36 0)
@@ -2509,7 +2537,11 @@
     (property "Value" "LED" (id 1) (at 188.0108 83.3628 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
+<<<<<<< Updated upstream
     (property "Footprint" "LED_SMD:LED_0603_1608Metric" (id 2) (at 186.69 86.36 0)
+=======
+    (property "Footprint" "LED_SMD:LED_0603_1608Metric" (id 2) (at 186.69 74.93 0)
+>>>>>>> Stashed changes
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 186.69 86.36 0)
@@ -3246,8 +3278,8 @@
     (in_bom yes) (on_board yes)
     (uuid c025e6d2-e820-404e-abc2-337eef32c295)
     (property "Reference" "U1" (id 0) (at 50.8 29.4386 0))
-    (property "Value" "SN65HVD230" (id 1) (at 50.8 31.75 0))
-    (property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (id 2) (at 43.18 54.61 0)
+    (property "Value" "" (id 1) (at 50.8 31.75 0))
+    (property "Footprint" "" (id 2) (at 43.18 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "http://www.ti.com/lit/ds/symlink/sn65hvd230.pdf" (id 3) (at 40.64 31.75 0)

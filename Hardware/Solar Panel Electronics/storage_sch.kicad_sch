@@ -484,7 +484,11 @@
     (uuid d4a89851-f343-4a84-b3cb-1339eebcb206)
     (property "Reference" "J7" (id 0) (at 165.1 75.7682 0))
     (property "Value" "~" (id 1) (at 165.1 78.0796 0))
+<<<<<<< Updated upstream
     (property "Footprint" "Connector_Card:microSD_HC_Wuerth_693072010801" (id 2) (at 195.58 86.36 0)
+=======
+    (property "Footprint" "Connector_Card:microSD_HC_Hirose_DM3AT-SF-PEJM5" (id 2) (at 195.58 86.36 0)
+>>>>>>> Stashed changes
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "http://katalog.we-online.de/em/datasheet/693072010801.pdf" (id 3) (at 166.37 93.98 0)
