@@ -4014,10 +4014,10 @@
       (reference "C25") (unit 1) (value "0.1u") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/8c75840a-25ea-4632-b238-7bba209cd387"
-      (reference "C26") (unit 1) (value "100nF") (footprint "Capacitor_SMD:C_0603_1608Metric")
+      (reference "C26") (unit 1) (value "55nF") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/9c226250-fd4e-4f5d-8971-b4f53065e2de"
-      (reference "C27") (unit 1) (value "2.2nF") (footprint "Capacitor_SMD:C_0603_1608Metric")
+      (reference "C27") (unit 1) (value "0.01nF") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/53eb5fc0-41cc-43ad-8003-3a7163adca82"
       (reference "C28") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_0603_1608Metric")
@@ -4305,7 +4305,7 @@
       (reference "R36") (unit 1) (value "15m") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/6bbd1877-bb2e-4c89-a2f2-6eae114b72a5"
-      (reference "R37") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0603_1608Metric")
+      (reference "R37") (unit 1) (value "17k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/c8570c2e-fc2d-487c-a0fa-1a5ac7e36d96"
       (reference "R38") (unit 1) (value "900") (footprint "Resistor_SMD:R_0603_1608Metric")
