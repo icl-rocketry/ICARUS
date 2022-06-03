@@ -1542,6 +1542,10 @@
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 67128467-56ca-44d9-a7f6-c60a5ef437af)
   )
+  (wire (pts (xy 271.78 58.42) (xy 279.4 58.42))
+    (stroke (width 0) (type default) (color 0 0 0 0))
+    (uuid 6cbcb58b-5653-4a15-af87-39cebf054947)
+  )
   (wire (pts (xy 271.78 50.8) (xy 279.4 50.8))
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 6e86b617-652a-4897-a8dc-8534826d72cc)
@@ -1585,6 +1589,10 @@
   (wire (pts (xy 227.33 80.01) (xy 229.87 80.01))
     (stroke (width 0) (type default) (color 0 0 0 0))
     (uuid 7d5b7a43-1087-40c5-b365-cf5a95052eaa)
+  )
+  (wire (pts (xy 271.78 54.61) (xy 279.4 54.61))
+    (stroke (width 0) (type default) (color 0 0 0 0))
+    (uuid 7f14a5ae-5248-4d80-94b9-e279f9cf8170)
   )
   (wire (pts (xy 142.24 176.53) (xy 144.78 176.53))
     (stroke (width 0) (type default) (color 0 0 0 0))
@@ -1880,6 +1888,10 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 14c38dd2-4ce1-4302-a422-80e6306f8a55)
   )
+  (label "SDA" (at 279.4 58.42 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 1f9b3d64-cd0e-4abe-8357-17b33210a5a9)
+  )
   (label "EN" (at 115.57 66.04 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 1fc572bb-7238-42d0-b278-6521b548efd4)
@@ -2063,6 +2075,10 @@
   (label "~{ADC_CS}" (at 219.71 48.26 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid eab17632-fb30-48a3-8a01-2f6532868790)
+  )
+  (label "SCL" (at 279.4 54.61 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid ed43c84c-c4e3-4242-86e0-960b35e34d6d)
   )
   (label "CAN_TX" (at 20.32 39.37 180)
     (effects (font (size 1.27 1.27)) (justify right bottom))
@@ -2819,10 +2835,10 @@
     (property "Reference" "U2" (id 0) (at 137.9094 58.42 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "" (id 1) (at 137.9094 60.96 0)
+    (property "Value" "ESP32-WROOM-32D" (id 1) (at 137.9094 60.96 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (id 2) (at 135.89 134.62 0)
+    (property "Footprint" "RF_Module:ESP32-WROOM-32" (id 2) (at 135.89 134.62 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf" (id 3) (at 128.27 95.25 0)
@@ -3321,6 +3337,14 @@
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid 1875911e-75dd-4f1d-9073-d04ef367ec92)
     )
+    (pin "SCL" bidirectional (at 271.78 54.61 0)
+      (effects (font (size 1.27 1.27)) (justify right))
+      (uuid 68513806-7dc4-4ce3-a311-86049a308f19)
+    )
+    (pin "SDA" bidirectional (at 271.78 58.42 0)
+      (effects (font (size 1.27 1.27)) (justify right))
+      (uuid d2c5c226-b43e-4fad-958b-71760b3fa8c7)
+    )
   )
 
   (sheet (at 229.87 76.2) (size 31.75 16.51) (fields_autoplaced)
@@ -3447,6 +3471,33 @@
     )
     (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/cbdb8381-7538-49f8-be1f-0af0d22dcc5a"
       (reference "#PWR033") (unit 1) (value "~") (footprint "")
+    )
+    (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/3df830de-4ed6-4e8e-8ec1-513ec29e3820"
+      (reference "#PWR034") (unit 1) (value "+3V3") (footprint "")
+    )
+    (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/24e68f83-3d8e-47b5-a3df-b31b10232af3"
+      (reference "#PWR035") (unit 1) (value "+3V3") (footprint "")
+    )
+    (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/484dc59d-f6ad-45be-b90b-db063f8c0458"
+      (reference "#PWR036") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/563f5cf4-541a-47de-98a0-73e57e2bd883"
+      (reference "#PWR037") (unit 1) (value "GND") (footprint "")
+    )
+    (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/4f08d0e8-2b11-4f3b-a2cc-decac7368cd0"
+      (reference "#PWR038") (unit 1) (value "+3V3") (footprint "")
+    )
+    (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/59c30245-2cf8-4c8b-8c9b-82b421fee277"
+      (reference "#PWR039") (unit 1) (value "+3V3") (footprint "")
+    )
+    (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/b15eb05f-55cd-4418-ae5c-34ca4693c1b9"
+      (reference "#PWR040") (unit 1) (value "~") (footprint "")
+    )
+    (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/e110550d-d8af-4452-94b9-caa98717e1e0"
+      (reference "#PWR041") (unit 1) (value "~") (footprint "")
+    )
+    (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/7d3b4ac2-8edd-4e60-96bc-1bd81d41ef7c"
+      (reference "#PWR042") (unit 1) (value "+3.3V") (footprint "")
     )
     (path "/310f8558-c797-476e-8a2a-d62ef2751219"
       (reference "#PWR0101") (unit 1) (value "GND") (footprint "")
@@ -3708,6 +3759,12 @@
     )
     (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/c8385bae-c504-4909-9bb4-fecd33d11d42"
       (reference "C37") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_0603_1608Metric")
+    )
+    (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/7a780f35-04b0-4a70-81b2-6d9de07f75bb"
+      (reference "C38") (unit 1) (value "0.1uF") (footprint "Capacitor_SMD:C_0603_1608Metric")
+    )
+    (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/d4726cc0-5e09-4a99-a798-cb63d71ad832"
+      (reference "C39") (unit 1) (value "10uF") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
     (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/9dca0f2d-fbf5-429a-9c58-13009d517f37"
       (reference "C40") (unit 1) (value "2.2u") (footprint "Capacitor_SMD:C_0603_1608Metric")
@@ -3988,6 +4045,15 @@
     (path "/bc16b27f-da78-4399-84ff-d0e67df4623d/582fbfa2-b601-480b-a0a3-5440e8c8e840"
       (reference "R47") (unit 1) (value "1M") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
+    (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/aca58525-7843-4132-b10b-c43af6da5165"
+      (reference "R48") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0603_1608Metric")
+    )
+    (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/f78c5097-3e5b-47b4-ba35-84f73a0dd4ef"
+      (reference "R49") (unit 1) (value "1k") (footprint "Resistor_SMD:R_0603_1608Metric")
+    )
+    (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/97653713-8f53-424e-9437-3e17f0a974cf"
+      (reference "R50") (unit 1) (value "1k") (footprint "Resistor_SMD:R_0603_1608Metric")
+    )
     (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/2aa0d205-a9fc-441e-ac32-25aab2685fc5"
       (reference "R_Shunt1") (unit 1) (value "1k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
@@ -4041,6 +4107,9 @@
     )
     (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/deb6560a-ecde-4036-a15d-5dbf4358222b"
       (reference "U8") (unit 1) (value "ADS131M04") (footprint "Package_DFN_QFN:WQFN-20-1EP_3x3mm_P0.4mm_EP1.7x1.7mm_ThermalVias")
+    )
+    (path "/b081b074-3171-4535-9bf1-f0e71da78e2a/edc90cf2-db35-4c18-ae81-6ad3becf21d1"
+      (reference "U9") (unit 1) (value "ADS1219IPWT") (footprint "ADS1219IPWT:SOP65P640X120-16N")
     )
   )
 )
