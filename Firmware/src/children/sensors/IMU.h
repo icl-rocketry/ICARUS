@@ -2,18 +2,18 @@
 high-g event detection (launch, landing)
 Provide orientation detection
 check for stationary
-kyril
+Lara
 BN0055
 */
 
+#pragma once
 #include <Arduino.h>
 #include <Adafruit_BNO08x.h>
 #include "../errorHandling.h"
 #include <Wire.h>
 
 
-#ifndef IMU_H
-#define IMU_H
+
 
 class IMU {
     public:
@@ -34,4 +34,3 @@ class IMU {
         TwoWire wireObj;
 };
 
-#endif

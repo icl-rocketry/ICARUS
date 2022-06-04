@@ -1,13 +1,11 @@
 // SD card logging 
+#pragma once
 #include "../sensors/IMU.h"
 #include "../sensors/barom.h"
 #include "FS.h"
 #include "SD.h"
 #include <SPI.h>
 #include "../errorHandling.h"
-
-#ifndef SDCONTROL_H
-#define SDCONTROL_H
 
 class sd_card_log {
   public:
@@ -25,8 +23,6 @@ class sd_card_log {
     IMU* _bno;
     ErrorHandler* _errHand;
 };
-
-#endif
 
 
 

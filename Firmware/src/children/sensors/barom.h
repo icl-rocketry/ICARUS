@@ -1,13 +1,14 @@
 // provide altitude, from pressure and temperature
 // provide landing detection (launch detection?)
-// Kyril
+// Lara
 //BMP388
+#pragma once
+
 #include <Arduino.h>
 #include "BMP388_DEV.h"
 #include "../errorHandling.h"
 
-#ifndef BAROM_H
-#define BAROM_H
+
 
 #define numberofmeasurements 10
 
@@ -30,4 +31,3 @@ class barom {
         bool hasLanded();
 };
 
-#endif

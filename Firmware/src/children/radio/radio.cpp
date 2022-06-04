@@ -5,8 +5,6 @@
 #include <vector>
 
 radio::radio(barom* bmp388, IMU* bno, ErrorHandler* errHand):
-spikeFire(false),
-spikeArmed(false),
 _txDone(false),
 _errHand(errHand),
 _bmp(bmp388),
@@ -15,10 +13,6 @@ _bno(bno)
 
 void radio::setup() {
     // Code to be run at setup
-
-    // Set initial value of spike fire state to 0
-    spikeArmed = 0;
-    spikeFire = 0;
 
     LoRa.setPins(RADIO_CS, RADIO_RESET, RADIO_IRQ);
 
@@ -54,10 +48,6 @@ void radio::checkIncomming(){
         parseCommand(LoRa.read());
     }
 
-    // reset spikeFire to false if its not been armed
-    if (spikeArmed == false) {
-        spikeFire = false;
-    }
 }
 
 void radio::sendTelemetry() {
@@ -105,16 +95,6 @@ void radio::parseCommand(uint8_t command) {
     switch (command) {
         case TELEMETRY_COMMAND:
             sendTelemetry();
-            break;
-
-        case ARM_COMMAND:
-            // update the corresponding variable
-            spikeArmed = true;
-            break;
-
-        case FIRE_COMMAND:
-            // update the corresponding variable
-            spikeFire = true;
             break;
 
         default:

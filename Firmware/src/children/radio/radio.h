@@ -1,13 +1,11 @@
 // Collects and sends data to GCS
 // Receive commands from GCS for spike
 
-#ifndef RADIO_H
-#define RADIO_H
+#pragma once
 
 // Define the meaning of different received commands
-#define ARM_COMMAND 0x01
-#define FIRE_COMMAND 0x02
-#define TELEMETRY_COMMAND 0x03
+
+#define TELEMETRY_COMMAND 0x01
 
 #define telemetryPacketLength 25
 
@@ -37,8 +35,6 @@ class radio {
         void setup();
         void update();
 
-        bool spikeFire;
-        bool spikeArmed;
 
         telemetry_t telemetryPacket;
        void sendTelemetry();
@@ -58,5 +54,3 @@ class radio {
         IMU* _bno;
         uint32_t response_time;
 };
-
-#endif
