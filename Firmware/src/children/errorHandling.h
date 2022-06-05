@@ -8,7 +8,6 @@
 #include "Arduino.h"
 #include "buzzer.h"
 
-
 // This snippet will be called any time there is an error update from any of the children. Not usable rn.
 enum states
 {
@@ -26,9 +25,8 @@ public:
 
 private:
     uint8_t currentState;
-    buzzer * _buzz;
+    buzzer* _buzz;
 };
-
 
 
 

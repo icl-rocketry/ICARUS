@@ -2,8 +2,7 @@
 #include "errorHandling.h"
 #include "buzzer.h"
 
-ErrorHandler::ErrorHandler(buzzer* buzz)
-{
+ErrorHandler::ErrorHandler(buzzer* buzz){
     _buzz = buzz;
     currentState = 0;
 

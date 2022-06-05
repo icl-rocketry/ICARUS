@@ -66,7 +66,6 @@ void buzzer::stateAlert(){
     // }
 }
 
-
 void buzzer::update() {
       if (millis() - previousT > currentNote.duration){
         previousT = millis(); // update previous time
