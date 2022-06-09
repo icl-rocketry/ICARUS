@@ -11,9 +11,6 @@ Written by the Electronics team, Imperial College London Rocketry
 #include "children/errorHandling.h"
 #include "children/buzzer.h"
 #include "children/logging/SDcontrol.h"
-#include "children/sensors/IMU.h"
-#include "children/sensors/barom.h"
-#include "children/radio/radio.h"
 
 class State;
 
@@ -27,10 +24,7 @@ class stateMachine {
     
     buzzer buzz;
     ErrorHandler errHand;
-    IMU bno;
-    barom BMP;
     sd_card_log SD_Card;
-    radio loraRad;
 
   private:
     State* _currStatePtr;

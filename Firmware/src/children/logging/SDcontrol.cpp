@@ -1,16 +1,13 @@
 #include "SDcontrol.h"
-#include "../sensors/IMU.h"
-#include "../sensors/barom.h"
+
 #include "FS.h"
 #include "SD.h"
 #include <SPI.h>
 #include "pinDefinitions.h"
 
 
-sd_card_log::sd_card_log(barom* bmp388, IMU* bno, ErrorHandler* errHand){
+sd_card_log::sd_card_log(ErrorHandler* errHand){
 //sd_card_log::sd_card_log(){
-  _bmp388 = bmp388;
-  _bno = bno;
   _errHand = errHand;
 };
 
@@ -59,19 +56,12 @@ void sd_card_log::logSDCard(){
   // Get values to write
   unsigned long timeStamp = millis();
 
-  float altitude;
-  altitude = _bmp388->getAltitude();
-
-  float orientation[4];
-  _bno->getOrientation(&orientation[0]);
  
   // Arbitrary numbers for testing
   uint8_t SystemState = _errHand->get_state();
 
   String dataMessage;
-  dataMessage = String(timeStamp) + "," +
-                String(altitude) + "," +
-                String(orientation[0]) + "," + String(orientation[1]) + "," + String(orientation[2]) + "," + String(orientation[3]);
+  dataMessage = String(timeStamp) + "," +         
                 "," + String(SystemState) + "\r\n";
   Serial.print("Save data: ");
   Serial.println(dataMessage);

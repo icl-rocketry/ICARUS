@@ -22,20 +22,6 @@ void ErrorHandler::raiseError(states component){
             BuzzMe();
             break;
 
-        case states::imu:
-            currentState |= (uint8_t)pow(2,1); 
-            BuzzMe();
-            break;
-
-        case states::Baro:
-            currentState |= (uint8_t)pow(2,2); 
-            BuzzMe();
-            break;
-        
-        case states::Radio:
-            currentState |= (uint8_t)pow(2,3); 
-            BuzzMe();
-            break;
     }
 }
 

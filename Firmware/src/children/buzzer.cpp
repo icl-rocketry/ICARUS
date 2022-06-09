@@ -31,7 +31,7 @@ void buzzer::landingAlert(){
             //write zero to 000); // again
         noteBuffer.push_back(Note_t{0, 500});  // delay for 0.5 sec
         noteBuffer.push_back(Note_t{1000,1000}); // last time for dramatic effect
-;        //}
+       //}
         
        
 }
@@ -66,23 +66,25 @@ void buzzer::stateAlert(){
     // }
 }
 
-void buzzer::update() {
-      if (millis() - previousT > currentNote.duration){
+void buzzer::update()
+{
+    if (millis() - previousT > currentNote.duration)
+    {
         previousT = millis(); // update previous time
 
-        if (noteBuffer.size() == 0){ // check size of note buffer
-            //write zero to ledc
-            ledcWriteTone(0,0);
+        if (noteBuffer.size() == 0)
+        { // check size of note buffer
+            // write zero to ledc
+            ledcWriteTone(0, 0);
             return;
         }
-        //pop from note buffer to get next note
+        // pop from note buffer to get next note
         currentNote = noteBuffer.front();
-        noteBuffer.erase(noteBuffer.begin()); //remove from note buffer
-        //ledc play note
-
-}        ledcWriteTone(0,currentNote.frequency);
+        noteBuffer.erase(noteBuffer.begin()); // remove from note buffer
+        // ledc play note
     }
-    
+    ledcWriteTone(0, currentNote.frequency);
+}
 
 /*
 

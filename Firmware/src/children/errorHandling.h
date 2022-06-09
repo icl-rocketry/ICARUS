@@ -8,10 +8,12 @@
 #include "Arduino.h"
 #include "buzzer.h"
 
+class buzzer;
+
 // This snippet will be called any time there is an error update from any of the children. Not usable rn.
 enum states
 {
-    SDCard = 1, imu = 2, Baro = 3, Radio = 4 // IMU not used as conflicts with IMU class
+    SDCard = 1// IMU not used as conflicts with IMU class
 };
 
 class ErrorHandler

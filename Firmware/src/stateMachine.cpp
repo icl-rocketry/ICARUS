@@ -11,10 +11,7 @@ Written by the Electronics team, Imperial College London Rocketry
 stateMachine::stateMachine():
 buzz(),
 errHand(&buzz),
-bno(&errHand),
-BMP(&errHand),
-SD_Card(&BMP, &bno, &errHand),
-loraRad(&BMP, &bno, &errHand)
+SD_Card(&errHand)
 {}
 
 void stateMachine::initialise(State* initStatePtr) {
@@ -26,9 +23,6 @@ void stateMachine::initialise(State* initStatePtr) {
   // Initialise subsystems
 
   buzz.setupBuzzer();
-  bno.imuBegin();
-  BMP.baromBegin();
-  loraRad.setup();
   SD_Card.begin();
   // Initialise the classes
   changeState(initStatePtr);
@@ -37,8 +31,6 @@ void stateMachine::initialise(State* initStatePtr) {
 void stateMachine::update() {
 
   // Update classes that always need updating
-  loraRad.update();
-  bno.updateData();
   buzz.update(); // buzz lightyear !!!!!!!
 
   State* newStatePtr = _currStatePtr -> update();

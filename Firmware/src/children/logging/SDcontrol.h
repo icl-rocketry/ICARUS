@@ -1,7 +1,5 @@
 // SD card logging 
 #pragma once
-#include "../sensors/IMU.h"
-#include "../sensors/barom.h"
 #include "FS.h"
 #include "SD.h"
 #include <SPI.h>
@@ -10,7 +8,7 @@
 class sd_card_log {
   public:
 
-    sd_card_log(barom* bmp388, IMU* bno, ErrorHandler* errHand);
+    sd_card_log(ErrorHandler* errHand);
     //sd_card_log();
     void begin();
     void open_check();
@@ -19,8 +17,6 @@ class sd_card_log {
     void appendFile(fs::FS &fs, const char * path, const char * message);
     void writeFile(fs::FS &fs, const char * path, const char * message);
 
-    barom* _bmp388;
-    IMU* _bno;
     ErrorHandler* _errHand;
 };
 
