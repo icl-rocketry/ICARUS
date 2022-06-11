@@ -9,5 +9,10 @@
 #define RADIO_RESET 14
 #define SDA_PIN 26
 #define SCL_PIN 27
+#define ADC_CS  8
+#define ADC_CLK 9
+#define ADC_SPI 10
+
+
 
  
