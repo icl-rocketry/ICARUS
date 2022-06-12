@@ -4,9 +4,9 @@
 
 
 void setup() {
-    // Start the state machine with the correct initial state
+    
 }
 
 void loop() {
-    // Update the state machine
+
 }

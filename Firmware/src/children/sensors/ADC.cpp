@@ -1,7 +1,8 @@
+
 #include <Arduino.h>
 #include <Wire.h>
 #include <DFRobot_ADS1115.h>
-#include "ADC.h"
+
 DFRobot_ADS1115 ads(&Wire);
 
 void setup(void) 

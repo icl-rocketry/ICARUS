@@ -77,12 +77,12 @@
 #define DFROBOT_ADS1115_COMP_QUE_4CONV   (0x0002)    ///< After four conversions
 #define DFROBOT_ADS1115_COMP_QUE_NONE    (0x0003)    ///< Disable the comparator(default)
 
-typedef enum {
-    eAds219_ok,
-    eAds219_InitError,
-    eAds219_WriteRegError,
-    eAds219_ReadRegError,
-}eAds219_Status;
+//typedef enum {
+//    eAds219_ok,
+//   eAds219_InitError,
+//    eAds219_WriteRegError,
+//    eAds219_ReadRegError,
+//} eAds219_Status;
 
 typedef enum
 {
