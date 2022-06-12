@@ -1,16 +1,12 @@
-#pragma once
+#pragma once 
 #include <Arduino.h>
-#include <vector>
-#include "children/errorHandling.h"
-#include "ADS131M04.h"
+#include "pinDefinitions.h"
+#include "../errorHandling.h"
+#include "DFRobot_ADS1115.h"
 
-class ADC {
+class ADC{
     public:
-    ADC(ErrorHandler* errHand);
-    ADS131M04 ads;
-    ErrorHandler* _errHand;
-
-    bool ADCBegin();
-    bool working = false;
-    float current;
+    DFRobot_ADS1115 ads;
+    void setup();
+    void loop();
 };

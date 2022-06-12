@@ -13,7 +13,7 @@ class buzzer;
 // This snippet will be called any time there is an error update from any of the children. Not usable rn.
 enum states
 {
-    SDCard = 1// IMU not used as conflicts with IMU class
+    ADCs = 1, BAROMs = 2, HUMIDs = 3, GPSs = 4, SDCARDs = 5
 };
 
 class ErrorHandler
