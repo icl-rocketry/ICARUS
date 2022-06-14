@@ -9,6 +9,7 @@
  * @date  2019-06-19
  * @url https://github.com/DFRobot/DFRobot_ADS1115
  */
+#pragma once
 #include "Arduino.h"
 
 #include <Wire.h>

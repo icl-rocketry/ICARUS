@@ -5,6 +5,7 @@
 #include "DFRobot_ADS1115.h"
 
 class ADC{
+    ADC();
     public:
     DFRobot_ADS1115 ads;
     void setup();

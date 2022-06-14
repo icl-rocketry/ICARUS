@@ -281,6 +281,9 @@ int16_t DFRobot_ADS1115::readAdsReg(uint8_t i2cAddress, uint8_t reg)
 
 void DFRobot_ADS1115::writeAdsReg(uint8_t i2cAddress, uint8_t reg, uint16_t value)
 {
-    uint8_t buffer[2] = {(value >> 8), value & 0xff};
+    uint8_t value1 = (value >> 8);
+    uint8_t value2 = (value & 0xff);
+    uint8_t buffer[2] = {value1,value2};
+    //uint8_t buffer[2] = {(value >> 8), value & 0xff};
     writeReg(i2cAddress, reg, buffer, 2);
 }
