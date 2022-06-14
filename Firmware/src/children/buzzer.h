@@ -21,14 +21,10 @@ class buzzer{
         buzzer();
         // set up the buzzer
         void setupBuzzer();
-        // alert sound when landing
-        void landingAlert();
         // alert sound with starting
         void startingAlert();
         // alert sound when there's an error
         void errorAlert();
-        // state changing alert
-        void stateAlert();
 
         //update function
         void update();

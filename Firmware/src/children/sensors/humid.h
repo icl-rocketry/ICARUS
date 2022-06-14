@@ -5,9 +5,10 @@
 #include "DHT.h"
 
 class humid{
-    humid();
+    humid(ErrorHandler* errHand);
     public:
     DHT dht;
+    ErrorHandler* _errHand;
     void setup();
     void loop();
 };
