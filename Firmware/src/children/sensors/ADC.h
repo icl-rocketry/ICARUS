@@ -5,9 +5,10 @@
 #include "DFRobot_ADS1115.h"
 
 class ADC{
-    ADC();
+    ADC(ErrorHandler* errHand);
     public:
     DFRobot_ADS1115 ads;
+    ErrorHandler* _errHand;
     void setup();
     void loop();
 };

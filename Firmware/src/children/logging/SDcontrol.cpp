@@ -40,7 +40,7 @@ void sd_card_log::open_check(){
 File file = SD.open("/data.txt");
 if (!file)
 {
-    Serial.println("File doens't exist");
+    Serial.println("File doesn't exist");
     Serial.println("Creating file...");
     writeFile(SD, "/data.txt", "MillisTime, Altitude, Orr_real, Orr_i, orr_j, orr_k, SystemState\r\n");
 }

@@ -19,32 +19,6 @@ void buzzer::setupBuzzer(){
     ledcWriteTone(0,0); //write 0 hz so no noise
 }
 
-void buzzer::landingAlert(){
-        // what tune should we play
-        // boring buzzer sounds for now
-        //if (millis() - previousT >= delay) {
-        // save the last time you made a buzzer sound
-        // previousT += delay;
-        noteBuffer.push_back(Note_t{1000,1000});
-        noteBuffer.push_back(Note_t{0,500});  // delay for 0.5 sec
-        noteBuffer.push_back(Note_t{1000,1000});//push_back(Note_t{
-            //write zero to 000); // again
-        noteBuffer.push_back(Note_t{0, 500});  // delay for 0.5 sec
-        noteBuffer.push_back(Note_t{1000,1000}); // last time for dramatic effect
-       //}
-        
-       
-}
-
-void buzzer::startingAlert(){
-        // if (millis() - previousT >= delay) {
-        // save the last time you made a buzzer sound
-        
-        noteBuffer.push_back(Note_t{1000,500});
-        noteBuffer.push_back(Note_t{1000, 50}); // Send 1KHz sound signal
-        noteBuffer.push_back(Note_t{1000, 50}); // delay for 0.5 sec
-}        // }
-
 
 // called in the error handling code
 void buzzer::errorAlert(){
@@ -53,18 +27,6 @@ void buzzer::errorAlert(){
    
 }
 
-// included this in initialise code for different states
-void buzzer::stateAlert(){
-    // my creativity has ended here
-    // literally can't think of any sound pattern 
-    //// if (millis() - previousT >= delay) {
-    // save the last timeNote_tade a buzzer sound
-    // previousT += delayNote_t
-    noteBuffer.push_back(Note_t{1000, 2000}); // Send 1KHz sound signal
-    noteBuffer.push_back(Note_t{0, 1000});      // delay for 0.5 sec
-    noteBuffer.push_back(Note_t{1000, 2000}); // again
-    // }
-}
 
 void buzzer::update()
 {

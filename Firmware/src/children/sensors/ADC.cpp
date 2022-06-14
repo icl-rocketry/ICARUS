@@ -4,10 +4,10 @@
 #include "ADC.h"
 
 
-ADC::ADC():
+ADC::ADC(ErrorHandler* errHand):
 ads(&Wire)
 {
-
+    _errHand = errHand;
 }
 
 void ADC::setup(void) 
@@ -46,6 +46,7 @@ void ADC::loop(void)
     else
     {
         Serial.println("ADS1115 Disconnected!");
+        _errHand->raiseError(states::ADCs);
     }
 
     delay(1000);

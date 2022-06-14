@@ -1,13 +1,14 @@
-#pragma once
 #include <Arduino.h>
 #include <Wire.h> //Needed for I2C to GNSS
 #include "gps.h"
 #include <SparkFun_u-blox_GNSS_Arduino_Library.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
 
 
-gps::gps():
+gps::gps(ErrorHandler* errHand):
 myGNSS()
-{}
+{
+    _errHand = errHand;
+}
 
 long lastTime = 0; //Simple local timer. Limits amount if I2C traffic to u-blox module.
 
@@ -15,13 +16,13 @@ void gps::setup()
 {
   Serial.begin(115200);
   while (!Serial); //Wait for user to open terminal
-  Serial.println("SparkFun u-blox Example");
 
   Wire.begin();
 
   if (myGNSS.begin() == false) //Connect to the u-blox module using Wire port
   {
     Serial.println(F("u-blox GNSS not detected at default I2C address. Please check wiring. Freezing."));
+    _errHand->raiseError(states::GPSs);
     while (1);
   }
 
