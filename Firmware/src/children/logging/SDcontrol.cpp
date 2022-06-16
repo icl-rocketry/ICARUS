@@ -60,6 +60,12 @@ void sd_card_log::logSDCard(){
   unsigned long timeStamp = millis();
 
   pressure = _bmp388->getPressure();
+
+  float adcoutput[0];
+  //float adcoutput1[0];
+  //float adcoutput[2];
+  //float adcoutput[3];
+  _ads->getADC(&adcoutput[0]);
 //Need to add the data message here SC21
 // check vlad for insp SC21
 // the data that needs to be
@@ -68,7 +74,7 @@ void sd_card_log::logSDCard(){
   uint8_t SystemState = _errHand->get_state();
 
   String dataMessage;
-  dataMessage = String(timeStamp) + "," +         
+  dataMessage = String(timeStamp) + "," + String(adcoutput[0]) +        
                 "," + String(SystemState) + "\r\n";
   Serial.print("Save data: ");
   Serial.println(dataMessage);

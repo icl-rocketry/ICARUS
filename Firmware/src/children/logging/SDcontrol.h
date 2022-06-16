@@ -9,7 +9,7 @@
 #include "../sensors/gps.h"
 #include "../sensors/humid.h"
 
-class sd_card_log {
+class sd_card_log{
   public:
 
     sd_card_log(barom* bmp388, ADC* ads, gps* myGNSS, humid* dht, ErrorHandler* errHand);
