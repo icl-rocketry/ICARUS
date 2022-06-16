@@ -5,8 +5,9 @@
 #include "DFRobot_ADS1115.h"
 
 class ADC{
-    ADC(ErrorHandler* errHand);
+    
     public:
+    ADC(ErrorHandler* errHand);
     DFRobot_ADS1115 ads;
     ErrorHandler* _errHand;
     bool ADCBegin();

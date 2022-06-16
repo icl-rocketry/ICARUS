@@ -5,8 +5,9 @@
 #include "DHT.h"
 
 class humid{
-    humid(ErrorHandler* errHand);
+    
     public:
+    humid(ErrorHandler* errHand);
     DHT dht;
     ErrorHandler* _errHand;
     float humidity;

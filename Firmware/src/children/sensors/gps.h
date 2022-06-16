@@ -5,8 +5,9 @@
 #include <SparkFun_u-blox_GNSS_Arduino_Library.h>
 
 class gps{
-    gps(ErrorHandler* errHand);
+    
     public:
+    gps(ErrorHandler* errHand);
     SFE_UBLOX_GNSS myGNSS;
     ErrorHandler* _errHand;
     bool GPSBegin();

@@ -2,6 +2,8 @@
 #include "state.h"
 
 state::state():
+buzz(),
+errHand(&buzz),
 sd(&bmp, &ads, &mygps, &dhtsens, &errHand),
 ads(&errHand),
 bmp(&errHand),
