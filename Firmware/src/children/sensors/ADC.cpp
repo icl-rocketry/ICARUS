@@ -29,24 +29,30 @@ bool ADC::ADCBegin()
     }
 }
 
-void ADC::getADC() 
+void ADC::getADC(float* ADCarray) 
 {
     if (ads.checkADS1115())
     {
-        int16_t adc0, adc1, adc2, adc3;
         adc0 = ads.readVoltage(0);
+        *ADCarray = adc0;
         Serial.print("A0:");
         Serial.print(adc0);
         Serial.print("mV,  ");
+        ADCarray++;
         adc1 = ads.readVoltage(1);
+        *ADCarray = adc1;
         Serial.print("A1:");
         Serial.print(adc1);
         Serial.print("mV,  ");
+        ADCarray++;
         adc2 = ads.readVoltage(2);
+        *ADCarray = adc2;
         Serial.print("A2:");
         Serial.print(adc2);
         Serial.print("mV,  ");
+        ADCarray++;
         adc3 = ads.readVoltage(3);
+        *ADCarray = adc3;
         Serial.print("A3:");
         Serial.print(adc3);
         Serial.println("mV");

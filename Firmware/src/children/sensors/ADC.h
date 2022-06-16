@@ -10,8 +10,8 @@ class ADC{
     DFRobot_ADS1115 ads;
     ErrorHandler* _errHand;
     bool ADCBegin();
-    void getADC();
-    
+    void getADC(float* ADCarray);
+    int16_t adc0, adc1, adc2, adc3;
     private:
     bool working = false;
 };
