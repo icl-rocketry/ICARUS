@@ -55,7 +55,9 @@ void sd_card_log::logSDCard(){
 
   // Get values to write
   unsigned long timeStamp = millis();
-
+//Need to add the data message here SC21
+// check vlad for insp SC21
+// the data that needs to be
  
   // Arbitrary numbers for testing
   uint8_t SystemState = _errHand->get_state();

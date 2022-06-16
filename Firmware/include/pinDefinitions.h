@@ -12,5 +12,7 @@
 
 
 
-
+//DHT11: pin 4
+//SD: pin 5 (CS), 18 (CLK), 19 (MISO), 23 (MOSI)
+//ADC: pin 21 (SDA), pin 22 (SCL)
  
