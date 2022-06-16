@@ -9,6 +9,17 @@ class gps{
     public:
     SFE_UBLOX_GNSS myGNSS;
     ErrorHandler* _errHand;
-    void setup();
-    void loop();
+    bool GPSBegin();
+    void getGPS();
+    long latitude;
+    float getLatitude();
+    long longitude;
+    float getLongitude();
+    long altitude;
+    float getAltitude();
+    byte SIV;
+    byte getSIV();
+    private:
+    bool working = false;
+    long lastTime = 0;
 };

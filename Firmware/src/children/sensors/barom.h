@@ -15,12 +15,17 @@ class barom {
         ErrorHandler* _errHand;
         bool FIFOenabled;
         float altitude;
+        float temperature;
+        float pressure;
         uint32_t lastHasLandedTimeCheck;
         float altitudemeasurements[numberofmeasurements];
 
         bool baromBegin();
-        bool working = false;
         //gives the altitude
         float getAltitude();
+        float getTemp();
+        float getPressure();
+        private:
+        bool working = false;
 
 };

@@ -4,11 +4,15 @@
 #include "SD.h"
 #include <SPI.h>
 #include "../errorHandling.h"
+#include "../sensors/ADC.h"
+#include "../sensors/barom.h"
+#include "../sensors/gps.h"
+#include "../sensors/humid.h"
 
 class sd_card_log {
   public:
 
-    sd_card_log(ErrorHandler* errHand);
+    sd_card_log(barom* bmp388, ADC* ads, gps* myGNSS, humid* dht, ErrorHandler* errHand);
     //sd_card_log();
     void begin();
     void open_check();
@@ -16,17 +20,13 @@ class sd_card_log {
   private:
     void appendFile(fs::FS &fs, const char * path, const char * message);
     void writeFile(fs::FS &fs, const char * path, const char * message);
-
     ErrorHandler* _errHand;
+    barom* _bmp388;
+    float pressure;
+    ADC* _ads;
+    gps* _myGNSS;
+    humid* _dht;
 };
-
-
-
-
-
-
-
-
 
 
 /* String timeStamp;

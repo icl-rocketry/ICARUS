@@ -9,6 +9,9 @@ class humid{
     public:
     DHT dht;
     ErrorHandler* _errHand;
-    void setup();
-    void loop();
+    float humidity;
+    bool humidBegin();
+    float getHumid();
+    private:
+    bool working = false;
 };

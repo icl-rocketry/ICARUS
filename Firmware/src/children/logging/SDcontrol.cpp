@@ -1,13 +1,16 @@
 #include "SDcontrol.h"
-
 #include "FS.h"
 #include "SD.h"
 #include <SPI.h>
 #include "pinDefinitions.h"
 
 
-sd_card_log::sd_card_log(ErrorHandler* errHand){
+sd_card_log::sd_card_log(barom* bmp388, ADC* ads, gps* myGNSS, humid* dht, ErrorHandler* errHand){
 //sd_card_log::sd_card_log(){
+  _bmp388 = bmp388;
+  _ads = ads;
+  _myGNSS = myGNSS;
+  _dht = dht;
   _errHand = errHand;
 };
 
@@ -55,6 +58,8 @@ void sd_card_log::logSDCard(){
 
   // Get values to write
   unsigned long timeStamp = millis();
+
+  pressure = _bmp388->getPressure();
 //Need to add the data message here SC21
 // check vlad for insp SC21
 // the data that needs to be
