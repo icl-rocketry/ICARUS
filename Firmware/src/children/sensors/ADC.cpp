@@ -10,18 +10,26 @@ ads(&Wire)
     _errHand = errHand;
 }
 
-void ADC::setup(void) 
+bool ADC::ADCBegin() 
 {
     Serial.begin(115200);
-    ads.setAddr_ADS1115(ADS1115_IIC_ADDRESS1);   // 0x48
-    ads.setGain(eADSGain_t::eGAIN_TWOTHIRDS);   // 2/3x gain
-    ads.setMode(eMODE_SINGLE);       // single-shot mode
-    ads.setRate(eRATE_128);          // 128SPS (default)
-    ads.setOSMode(eOSMODE_SINGLE);   // Set to start a single-conversion
-    ads.init();
+    if(ads.checkADS1115()){
+        ads.setAddr_ADS1115(ADS1115_IIC_ADDRESS1);   // 0x48
+        ads.setGain(eADSGain_t::eGAIN_TWOTHIRDS);   // 2/3x gain
+        ads.setMode(eMODE_SINGLE);       // single-shot mode
+        ads.setRate(eRATE_128);          // 128SPS (default)
+        ads.setOSMode(eOSMODE_SINGLE);   // Set to start a single-conversion
+        ads.init();
+        working = true;
+        return true;
+    } else {
+        Serial.println("Error starting ads");
+        _errHand->raiseError(states::ADCs);
+        return false;
+    }
 }
 
-void ADC::loop(void) 
+void ADC::getADC() 
 {
     if (ads.checkADS1115())
     {

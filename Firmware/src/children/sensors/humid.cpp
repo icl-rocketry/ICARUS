@@ -3,48 +3,31 @@
 #include <Adafruit_Sensor.h>
 #include "humid.h"
 
-
-#define DHTPIN 2     // Digital pin connected to the DHT sensor
-#define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
+#define DHTTYPE DHT11   // DHT 22  (AM2302), AM2321
 
 humid::humid(ErrorHandler* errHand):
-dht(DHTPIN, DHTTYPE)
+dht(DHT_PIN, DHTTYPE)
 {
   _errHand = errHand;
 }
 
-void humid::setup() {
+bool humid::humidBegin(){
   Serial.begin(9600);
-
-
   dht.begin();
+  working = true;
+  return true ;
 }
 
-void humid::loop() {
-  // Wait a few seconds between measurements.
+float humid::getHumid() {
   delay(1000);
-
-  // Reading temperature or humidity takes about 250 milliseconds!
-  // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
-  float h = dht.readHumidity();
-  // Read temperature as Celsius (the default)
-  float t = dht.readTemperature();
-
-  // Check if any reads failed and exit early (to try again).
-  if (isnan(h) || isnan(t)) {
-    Serial.println(F("Failed to read from DHT sensor!"));
-    _errHand->raiseError(states::HUMIDs);
-    return;
-  }
-
-  // Compute heat index in Celsius (isFahreheit = false)
-  float hic = dht.computeHeatIndex(t, h, false);
-
-  Serial.print(F("Humidity: "));
-  Serial.print(h);
-  Serial.print(F("%  Temperature: "));
-  Serial.print(t);
-  Serial.print(F("°C "));
-  Serial.print(hic);
-  Serial.print(F("°C "));
+    if (working) {
+        if(dht.readHumidity(humidity)) {
+            return humidity;
+        } else {
+            Serial.print("Error getting humidity");
+            working = false;
+            _errHand->raiseError(states::HUMIDs);
+            return 0;
+        }
+    } else {return 0;}
 }

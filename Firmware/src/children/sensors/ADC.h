@@ -9,6 +9,9 @@ class ADC{
     public:
     DFRobot_ADS1115 ads;
     ErrorHandler* _errHand;
-    void setup();
-    void loop();
+    bool ADCBegin();
+    void getADC();
+    
+    private:
+    bool working = false;
 };

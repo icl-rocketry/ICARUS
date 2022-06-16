@@ -7,10 +7,9 @@
 #define altitudetolerance 3
 
 barom::barom(ErrorHandler* errHand):
-    bmp388(SDA_PIN, SCL_PIN)
+    bmp388(SDA_PIN,SCL_PIN)
  {
     FIFOenabled = false;
-    lastHasLandedTimeCheck = 0;
     _errHand = errHand;
     //starts storage of data, could put this in the hasLanded loop and run it once.
 }
@@ -36,6 +35,31 @@ float barom::getAltitude() {
             return altitude;
         } else {
             Serial.print("Error getting altitude");
+            working = false;
+            _errHand->raiseError(states::BAROMs);
+            return 0;
+        }
+    } else {return 0;}
+}
+
+float barom::getTemp() {
+    if (working) {
+        if(bmp388.getTemperature(temperature)) {
+            return temperature;
+        } else {
+            Serial.print("Error getting temperature");
+            working = false;
+            _errHand->raiseError(states::BAROMs);
+            return 0;
+        }
+    } else {return 0;}
+}
+float barom::getPressure() {
+    if (working) {
+        if(bmp388.getPressure(pressure)) {
+            return pressure;
+        } else {
+            Serial.print("Error getting pressure");
             working = false;
             _errHand->raiseError(states::BAROMs);
             return 0;
