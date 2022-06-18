@@ -6,10 +6,12 @@
 #define RADIO_CS 5
 #define RADIO_IRQ 12
 #define RADIO_RESET 14
-#define SDA_PIN 21 i2c
-#define SCL_PIN 22 i2c 
+#define SDA_PIN 21
+#define SCL_PIN 22
 #define DHT_PIN 4
 
+#define SDA_PIN 404
+#define SCL_PIN 403
 
 
 
