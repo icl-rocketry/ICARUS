@@ -16,6 +16,7 @@ barom::barom(ErrorHandler* errHand):
 
 bool barom::baromBegin(){
     if(bmp388.begin()){
+        Serial.println("YAy barom is working");
         bmp388.startNormalConversion();
         bmp388.setTimeStandby(TIME_STANDBY_80MS);
         bmp388.disableFIFO();

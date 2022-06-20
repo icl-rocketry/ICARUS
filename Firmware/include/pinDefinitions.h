@@ -10,9 +10,6 @@
 #define SCL_PIN 22
 #define DHT_PIN 4
 
-#define SDA_PIN 404
-#define SCL_PIN 403
-
 
 
 //DHT11: pin 4

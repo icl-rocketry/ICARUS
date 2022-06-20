@@ -16,6 +16,7 @@ uint8_t ErrorHandler::get_state(){
 void ErrorHandler::raiseError(states component){
     switch (component)
     {
+
         case states::ADCs:
             currentState |= (uint8_t)pow(2,0); 
             break;
@@ -38,6 +39,10 @@ void ErrorHandler::raiseError(states component){
         case states::SDCARDs:
             currentState |= (uint8_t)pow(2,4); 
             BuzzMe();
+            break;
+            
+        case states::LoRas:
+            currentState |= (uint8_t)pow(2,5); 
             break;
 
     }

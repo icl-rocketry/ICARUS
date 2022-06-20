@@ -15,6 +15,7 @@ bool gps::GPSBegin()
     Serial.begin(115200);
     Wire.begin();
     if(myGNSS.begin() == true){
+        Serial.println("YAy GPS is working");
         myGNSS.setI2COutput(COM_TYPE_UBX); //Set the I2C port to output UBX only (turn off NMEA noise)
         myGNSS.saveConfigSelective(VAL_CFG_SUBSEC_IOPORT); //Save (only) the communications port settings to flash and BBR
         working = true;

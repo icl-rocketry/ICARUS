@@ -13,7 +13,7 @@ class buzzer;
 // This snippet will be called any time there is an error update from any of the children. Not usable rn.
 enum states
 {
-    ADCs = 1, BAROMs = 2, HUMIDs = 3, GPSs = 4, SDCARDs = 5
+    ADCs = 1, BAROMs = 2, HUMIDs = 3, GPSs = 4, SDCARDs = 5, LoRas = 6
 };
 
 class ErrorHandler

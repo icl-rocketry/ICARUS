@@ -13,6 +13,7 @@ dht(DHT_PIN, DHTTYPE)
 }
 
 bool humid::humidBegin(){
+  Serial.println("YAy humid is working");
   Serial.begin(9600);
   dht.begin();
   working = true;
