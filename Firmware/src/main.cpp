@@ -3,11 +3,18 @@
 #include "state.h"
 
 state flight;
+uint32_t lastTimeChecked;
+const uint32_t delayTime =1000;
 
 void setup() {
     flight.initialise();
+    lastTimeChecked = millis();
 }
 
 void loop() {
-    flight.update();
+    if ( (millis()-lastTimeChecked) > delayTime){
+        flight.update();
+        lastTimeChecked = millis();
+    }
+    
 }
