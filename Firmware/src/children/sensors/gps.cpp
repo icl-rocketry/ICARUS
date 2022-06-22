@@ -88,12 +88,4 @@ byte gps::getSIV() {
     } else {return 0;}
 }
 
-void gps::getGPS()
-{
-  //Query module only every second. Doing it more often will just cause I2C traffic.
-  //The module only responds when a new position is available
-  if (millis() - lastTime > 1000)
-  {
-    lastTime = millis(); //Update the timer
-  }
-}
+

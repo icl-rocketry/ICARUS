@@ -11,7 +11,6 @@ class gps{
     SFE_UBLOX_GNSS myGNSS;
     ErrorHandler* _errHand;
     bool GPSBegin();
-    void getGPS();
     long latitude;
     float getLatitude();
     long longitude;

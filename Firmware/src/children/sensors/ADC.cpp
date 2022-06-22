@@ -64,5 +64,4 @@ void ADC::getADC(float* ADCarray)
         _errHand->raiseError(states::ADCs);
     }
 
-    delay(1000);
 }

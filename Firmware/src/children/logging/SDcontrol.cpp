@@ -58,23 +58,30 @@ void sd_card_log::logSDCard(){
 
   // Get values to write
   unsigned long timeStamp = millis();
-
-  pressure = _bmp388->getPressure();
-
-  float adcoutput[0];
-  //float adcoutput1[0];
-  //float adcoutput[2];
-  //float adcoutput[3];
+  //Adc stuff
   _ads->getADC(&adcoutput[0]);
-//Need to add the data message here SC21
-// check vlad for insp SC21
-// the data that needs to be
- 
+  //barom stuff
+  baromtemp = _bmp388->getTemp();
+  barompressure = _bmp388->getPressure();
+  baromaltitude = _bmp388->getAltitude();
+  //GPS stuff
+  gpslat = _myGNSS->getLatitude();
+  gpslong = _myGNSS->getLongitude();
+  gpsalt =  _myGNSS->getAltitude();
+  gpsSIV = _myGNSS->getSIV(); 
+  //Humid stuff
+  dhthumid = _dht->getHumid();
+  dhttemp = _dht->getTemp();
+  dhtheatindex = _dht->getHeatIndex();
   // Arbitrary numbers for testing
   uint8_t SystemState = _errHand->get_state();
 
   String dataMessage;
-  dataMessage = String(timeStamp) + "," + String(adcoutput[0]) +        
+  dataMessage = String(timeStamp) + 
+  "," + String(adcoutput[0]) + "," + String(adcoutput[1]) +"," + String(adcoutput[2]) +"," + String(adcoutput[3]) +   
+  "," + String(baromtemp) + "," + String(barompressure) +"," + String(baromaltitude) +
+  "," + String(gpslat) + "," + String(gpslong) +"," + String(gpsalt) +"," + String(gpsSIV) +    
+  "," + String(dhthumid) + "," + String(dhttemp) +"," + String(dhtheatindex)+ 
                 "," + String(SystemState) + "\r\n";
   Serial.print("Save data: ");
   Serial.println(dataMessage);

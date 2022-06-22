@@ -22,7 +22,17 @@ class sd_card_log{
     void writeFile(fs::FS &fs, const char * path, const char * message);
     ErrorHandler* _errHand;
     barom* _bmp388;
-    float pressure;
+    float baromtemp;
+    float barompressure;
+    float baromaltitude;
+    float gpslat;
+    float gpslong;
+    float gpsalt;
+    float dhthumid;
+    float dhttemp;
+    float dhtheatindex;
+    byte gpsSIV;
+    float adcoutput[4];
     ADC* _ads;
     gps* _myGNSS;
     humid* _dht;
