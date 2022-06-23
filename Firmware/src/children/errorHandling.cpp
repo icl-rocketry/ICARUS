@@ -19,6 +19,7 @@ void ErrorHandler::raiseError(states component){
 
         case states::ADCs:
             currentState |= (uint8_t)pow(2,0); 
+            BuzzMe();
             break;
 
         case states::BAROMs:
@@ -28,7 +29,6 @@ void ErrorHandler::raiseError(states component){
 
         case states::HUMIDs:
             currentState |= (uint8_t)pow(2,2); 
-            BuzzMe();
             break;
 
         case states::GPSs:
@@ -43,6 +43,7 @@ void ErrorHandler::raiseError(states component){
             
         case states::LoRas:
             currentState |= (uint8_t)pow(2,5); 
+            BuzzMe();
             break;
 
     }
