@@ -9,9 +9,9 @@
 #define SDA_PIN 21
 #define SCL_PIN 22
 #define DHT_PIN 4
-#define LoraCs 25
-#define LoraReset 26
-#define LoraInt 27
+#define LORA_CS 25
+#define LORA_RESET 26
+//Lora :pin 25 (Cs),pin 26 (Reset)
 
 
 

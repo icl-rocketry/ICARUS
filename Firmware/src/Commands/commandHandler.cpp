@@ -61,24 +61,59 @@ void CommandHandler::TelemetryCommand(const RnpPacketSerialized& packet)
 	telemetry.system_time = millis();
 
 	_ads->getADC(&adcoutput[0]);
+	telemetry.pn = adcoutput[0];
+	telemetry.pe = adcoutput[1];
+	telemetry.pd = adcoutput[2];
 
-	telemetry.adc_ch1 = adcoutput[0];
-	telemetry.adc_ch2 = adcoutput[1];
-	telemetry.adc_ch3 = adcoutput[2];
-	telemetry.adc_ch4 = adcoutput[3];
+	telemetry.vn = adcoutput[3];
+	telemetry.ve = _bmp388->getTemp();
+	telemetry.vd = _bmp388->getPressure();
 
-	telemetry.baro_temp = _bmp388->getTemp();
-	telemetry.baro_press = _bmp388->getPressure();
-	telemetry.baro_alt = _bmp388->getAltitude();
+	telemetry.an = _bmp388->getAltitude();
+	telemetry.ae = _myGNSS->getLatitude();
+	telemetry.ad = _myGNSS->getLongitude();
 
-	telemetry.lat = _myGNSS->getLatitude();
-	telemetry.lng = _myGNSS->getLongitude();
-	telemetry.alt = _myGNSS->getAltitude();
-	telemetry.siv = _myGNSS->getSIV(); 
+	telemetry.roll = _myGNSS->getAltitude();
+	telemetry.pitch = _myGNSS->getSIV();
+	telemetry.yaw = _dht->getHumid();
 
-	telemetry.dht_humid = _dht->getHumid();
-	telemetry.dht_temp = _dht->getTemp();
-	telemetry.dht_heatindex = _dht->getHeatIndex();
+	telemetry.q0 = _dht->getTemp();
+	telemetry.q1 = _dht->getHeatIndex();
+	telemetry.q2 = 0;
+	telemetry.q3 = 0;
+
+	telemetry.lat = 0;
+	telemetry.lng = 0;
+	telemetry.alt = 0;
+	telemetry.sat = 0;
+
+	telemetry.ax = 0;
+	telemetry.ay = 0;
+	telemetry.az = 0;
+
+	telemetry.h_ax = 0;
+	telemetry.h_ay = 0;
+	telemetry.h_az = 0;
+
+	telemetry.gx = 0;
+	telemetry.gy = 0;
+	telemetry.gz = 0;
+
+	telemetry.mx = 0;
+	telemetry.my = 0;
+	telemetry.mz = 0;
+
+	telemetry.baro_temp = 0;
+	telemetry.baro_press = 0;
+	telemetry.baro_alt = 0;
+
+	telemetry.batt_voltage = 0;
+	telemetry.batt_percent = 0;
+
+	telemetry.launch_lat = 0;
+	telemetry.launch_lng = 0;
+	telemetry.launch_alt = 0;
+
 
 	telemetry.system_status = _errHand->get_state();
 

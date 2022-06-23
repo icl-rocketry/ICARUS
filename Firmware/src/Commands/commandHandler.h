@@ -24,6 +24,8 @@ class CommandHandler {
 
         static constexpr uint8_t serviceID = static_cast<uint8_t>(DEFAULT_SERVICES::COMMAND); // serivce ID for network manager
         RnpNetworkManager networkmanager;   
+        void handleCommand(std::unique_ptr<RnpPacketSerialized> packetptr);
+        void TelemetryCommand(const RnpPacketSerialized& packet);
     private:
         float adcoutput[4];
         ErrorHandler* _errHand;
@@ -31,7 +33,6 @@ class CommandHandler {
         ADC* _ads;
         gps* _myGNSS;
         humid* _dht;
-        void handleCommand(std::unique_ptr<RnpPacketSerialized> packetptr);
-        void TelemetryCommand(const RnpPacketSerialized& packet);
+        
 
 };	

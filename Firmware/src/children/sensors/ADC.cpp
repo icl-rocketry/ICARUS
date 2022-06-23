@@ -12,7 +12,6 @@ ads(&Wire)
 
 bool ADC::ADCBegin() 
 {
-    Serial.begin(115200);
     if(ads.checkADS1115()){
         Serial.println("YAy ADS is working");
         ads.setAddr_ADS1115(ADS1115_IIC_ADDRESS1);   // 0x48

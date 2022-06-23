@@ -9,7 +9,9 @@ sd(&bmp, &ads, &mygps, &dhtsens, &errHand),
 ads(&errHand),
 bmp(&errHand),
 mygps(&errHand),
-dhtsens(&errHand)
+dhtsens(&errHand),
+networkmanager(),
+lora(spi, &errHand, "Radio")
 {}
 
 void state::initialise(){
@@ -22,10 +24,11 @@ void state::initialise(){
     bmp.baromBegin();
     mygps.GPSBegin();
     dhtsens.humidBegin();
+    lora.setup();
 
 }
 
 void state::update(){
     sd.logSDCard();
-
+    networkmanager.update();
 }

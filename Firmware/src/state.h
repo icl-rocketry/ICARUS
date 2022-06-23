@@ -7,6 +7,9 @@
 #include "../src/children/sensors/humid.h"
 #include "../src/children/errorHandling.h"
 #include "../src/children/buzzer.h"
+#include "../src/children/LoRa/radio.h"
+#include <rnp_networkmanager.h>
+#include <SPI.h>
 
 class state{
     public:
@@ -20,5 +23,7 @@ class state{
     barom bmp;
     gps mygps;
     humid dhtsens;
-
+    RnpNetworkManager networkmanager;
+    Radio lora;
+    SPIClass spi;
 };

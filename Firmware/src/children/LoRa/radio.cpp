@@ -26,11 +26,12 @@ _txDone(true)
 
 void Radio::setup(){
     //setup lora module
-    LoRa.setPins(LoraCs,LoraReset,LoraInt);
+    LoRa.setPins(LORA_CS,LORA_RESET);
     LoRa.setSPI(_spi);
-
+    LoRa.begin(868E6);
     if (!LoRa.begin(868E6)){
-        _errHand->raiseError(states::LoRas);      
+        _errHand->raiseError(states::LoRas); 
+        Serial.println("lora error");
     };
     
 
@@ -114,6 +115,7 @@ size_t Radio::send(std::vector<uint8_t> &data){
         LoRa.write(data.data(), data.size());
         LoRa.endPacket(true); // asynchronous send 
         _txDone = false;
+        Serial.println("packet sent");
         return data.size();
     }else{
         return 0;
