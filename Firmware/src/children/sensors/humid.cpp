@@ -33,18 +33,23 @@ float humid::getTemp() {
 }
 
 float humid::getHeatIndex() {
-    if (working) {
-        if(dht.computeHeatIndex(temperature,humidity, false)){
-           heatindex = dht.computeHeatIndex(temperature,humidity, false);
-           Serial.print(" dht_heatindex: ");
-           Serial.print(heatindex);
-           Serial.print("\r\n");
-           return heatindex;
-        } else {
-            Serial.print("Error getting heatindex");
-            working = false;
-            _errHand->raiseError(states::HUMIDs);
-            return 0;
-        }
-    } else {return 0;}
+    heatindex = dht.computeHeatIndex(temperature,humidity, false);
+    Serial.print(" dht_heatindex: ");
+    Serial.print(heatindex);
+    Serial.print("\r\n");
+    return heatindex;
+    // if (working) {
+    //     if(dht.computeHeatIndex(temperature,humidity, false)){
+    //        heatindex = dht.computeHeatIndex(temperature,humidity, false);
+    //        Serial.print(" dht_heatindex: ");
+    //        Serial.print(heatindex);
+    //        Serial.print("\r\n");
+    //        return heatindex;
+    //     } else {
+    //         Serial.print("Error getting heatindex");
+    //         working = false;
+    //         _errHand->raiseError(states::HUMIDs);
+    //         return 0;
+    //     }
+    // } else {return 0;}
 }
