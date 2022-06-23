@@ -61,31 +61,31 @@ void CommandHandler::TelemetryCommand(const RnpPacketSerialized& packet)
 	telemetry.system_time = millis();
 
 	_ads->getADC(&adcoutput[0]);
-	telemetry.pn = adcoutput[0];
-	telemetry.pe = adcoutput[1];
-	telemetry.pd = adcoutput[2];
+	telemetry.pn = 0;
+	telemetry.pe = 0;
+	telemetry.pd = 0;
 
-	telemetry.vn = adcoutput[3];
-	telemetry.ve = _bmp388->getTemp();
-	telemetry.vd = _bmp388->getPressure();
+	telemetry.vn = 0;
+	telemetry.ve = 0;
+	telemetry.vd = 0;
 
-	telemetry.an = _bmp388->getAltitude();
-	telemetry.ae = _myGNSS->getLatitude();
-	telemetry.ad = _myGNSS->getLongitude();
+	telemetry.an = 0;
+	telemetry.ae = 0;
+	telemetry.ad = 0;
 
-	telemetry.roll = _myGNSS->getAltitude();
-	telemetry.pitch = _myGNSS->getSIV();
+	telemetry.roll = _dht->getTemp();
+	telemetry.pitch = _dht->getHeatIndex();
 	telemetry.yaw = _dht->getHumid();
 
-	telemetry.q0 = _dht->getTemp();
-	telemetry.q1 = _dht->getHeatIndex();
-	telemetry.q2 = 0;
-	telemetry.q3 = 0;
+	telemetry.q0 = adcoutput[0];
+	telemetry.q1 = adcoutput[1];
+	telemetry.q2 = adcoutput[2];
+	telemetry.q3 = adcoutput[3];
 
-	telemetry.lat = 0;
-	telemetry.lng = 0;
-	telemetry.alt = 0;
-	telemetry.sat = 0;
+	telemetry.lat = _myGNSS->getLatitude();
+	telemetry.lng = _myGNSS->getLongitude();
+	telemetry.alt = _myGNSS->getAltitude();
+	telemetry.sat = _myGNSS->getSIV();
 
 	telemetry.ax = 0;
 	telemetry.ay = 0;
@@ -103,9 +103,9 @@ void CommandHandler::TelemetryCommand(const RnpPacketSerialized& packet)
 	telemetry.my = 0;
 	telemetry.mz = 0;
 
-	telemetry.baro_temp = 0;
-	telemetry.baro_press = 0;
-	telemetry.baro_alt = 0;
+	telemetry.baro_temp = _bmp388->getTemp();
+	telemetry.baro_press = _bmp388->getPressure();
+	telemetry.baro_alt = _bmp388->getAltitude();
 
 	telemetry.batt_voltage = 0;
 	telemetry.batt_percent = 0;
