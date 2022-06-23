@@ -1,87 +1,126 @@
 #include "radio.h"
-#include <LoRa.h>
+
+
 #include <SPI.h>
-#include <Arduino.h>
+#include "pinDefinitions.h"
+#include <LoRa.h>
+
+#include <memory>
 #include <vector>
+#include "../errorHandling.h"
 
-radio::radio(barom* bmp388, ADC* ads, gps* maxm8q, humid* dht11, ErrorHandler* errHand):
-_txDone(false),
-_errHand(errHand),
-_bmp(bmp388),
-_ads(ads),
-_maxm8q(maxm8q),
-_dht11(dht11)
-{}
+#include "rnp_interface.h"
+#include "rnp_packet.h"
+
+Radio::Radio(SPIClass& spi, ErrorHandler* errHand, std::string name):
+RnpInterface(2,name),
+_spi(spi),
+_currentSendBufferSize(0),
+_txDone(true)
+{
+    _info.MTU = 256;
+    _info.sendBufferSize = 2048;
+    _errHand = errHand;
+};
 
 
-void radio::setup() {
-    // Code to be run at setup
+void Radio::setup(){
+    //setup lora module
+    LoRa.setPins(LoraCs,LoraReset,LoraInt);
+    LoRa.setSPI(_spi);
 
-    LoRa.setPins(RADIO_CS, RADIO_RESET, RADIO_IRQ);
+    if (!LoRa.begin(868E6)){
+        _errHand->raiseError(states::LoRas);      
+    };
+    
 
-    // Initialise LoRa
-    if (!LoRa.begin(868E6)) {
-        _errHand->raiseError(states::LoRas);
+    LoRa.setSignalBandwidth(250e3);
+    LoRa.setSpreadingFactor(7);
+    LoRa.enableCrc();
+};
+
+
+
+void Radio::sendPacket(RnpPacket& data)
+{
+    const size_t dataSize = data.header.size() + data.header.packet_len;
+    if (dataSize > _info.MTU){ // will implement packet segmentation here at a later data
+        ++_info.txerror;
+        return;
     }
+    // if (dataSize + _currentSendBufferSize > _info.sendBufferSize){
+    //     _systemstatus.new_message(SYSTEM_FLAG::ERROR_LORA," LoRa Send Buffer Overflow!");
+    //     ++_info.txerror;
+    //     _info.sendBufferOverflow = true;
+    //     return;
+    // }
+
+    std::vector<uint8_t> serializedPacket;
+    data.serialize(serializedPacket);
+    _sendBuffer.push(serializedPacket); // add to send buffer
+    _info.sendBufferOverflow = false;
+    _currentSendBufferSize += dataSize;
+    checkSendBuffer(); // see if we can send 
+    
+
 }
 
-void radio::update() {
-    // Code to be run every loop
-
-    checkIncomming();
+void Radio::update(){
+    getPacket();
     checkSendBuffer();
     checkTx();
 }
 
-void radio::checkIncomming(){
-    // Check if the radio is currently transmitting, and abort if it is
-    if (!_txDone) {
-        Serial.println("Transmitting...");
+
+void Radio::getPacket(){
+    // check if radio is still transmitting
+    if (!_txDone){  // this maybe able to be replaced wiht the begin packet method
         return;
     }
 
-    // Check if there's a new packet incoming
-    int packetSize = LoRa.parsePacket();
+    int packetSize = LoRa.parsePacket(); // put radio back into single receive mode and check for packets
 
-    if (packetSize != 0) {
-        // Read the header
-        Serial.println("Received Packet!");
-        response_time = millis();
-        // Read and then parse the command
-        parseCommand(LoRa.read());
+    if (packetSize){
+
+        std::vector<uint8_t> data(packetSize);
+        LoRa.readBytes(data.data(),packetSize);
+
+        if (_packetBuffer == nullptr){
+            return;
+        }
+
+        auto packet_ptr = std::make_unique<RnpPacketSerialized>(data);
+        //update source interface
+        packet_ptr->header.src_iface = getID();
+        _packetBuffer->push(std::move(packet_ptr));//add packet ptr  to buffer
+
     }
 }
 
-void radio::sendTelemetry() {
-    // Sends data to GCS over LoRa
-   updateTelemetry();
-    _sendBuffer.push_back(telemetryPacket); // copies telemetry into packet bufffer
-    Serial.println("Added packet to buffer");
-    msgCount++;
-}
-
-
-void radio::checkSendBuffer(){
-
-    if (!(_sendBuffer.size() > 0)){
+void Radio::checkSendBuffer(){
+    if (_sendBuffer.size() == 0){
         return; // exit if nothing in the buffer
     }
-
-    if (millis()-response_time > RESPONSE_DELAY) { // wait before sending
-        // check if radio is busy, if it isnt then send next packet
-        if(LoRa.beginPacket()){ 
-            Serial.println("Sending packet...");
-            telemetry_t packet = _sendBuffer.front();
-            LoRa.write((uint8_t*)&packet, telemetryPacketLength);
-            LoRa.endPacket(true); // asynchronous send 
-            //delete front element of send buffer
-            _sendBuffer.erase(_sendBuffer.begin());
-            _txDone = false;
-        }
+    // check if radio is busy, if it isnt then send next packet
+    size_t bytes_written = send(_sendBuffer.front());
+    if (bytes_written){ // if we succesfully send packet
+        _sendBuffer.pop(); //remove packet from buffer
+        _currentSendBufferSize -= bytes_written;
     }
 }
 
-void radio::checkTx(){
+size_t Radio::send(std::vector<uint8_t> &data){
+    if (LoRa.beginPacket()){
+        LoRa.write(data.data(), data.size());
+        LoRa.endPacket(true); // asynchronous send 
+        _txDone = false;
+        return data.size();
+    }else{
+        return 0;
+    }
+}
+
+void Radio::checkTx(){
     if (_txDone){
         return;
     }
@@ -91,23 +130,10 @@ void radio::checkTx(){
 }
 
 
-void radio::parseCommand(uint8_t command) {
-    // Function that updates the spike variables based on the received command
-
-    switch (command) {
-        case TELEMETRY_COMMAND:
-            sendTelemetry();
-            break;
-
-        default:
-            // Poorly formatted command received!
-            break;
-    }
-    
-}
-
-void radio::updateTelemetry() {
-    telemetryPacket.systemState = _errHand->get_state();
-    telemetryPacket.altitude = _bmp->getAltitude();
-    telemetryPacket.systemTime = millis();
-}
+const RnpInterfaceInfo* Radio::getInfo()
+{
+     _info.rssi = LoRa.rssi();
+     _info.snr = LoRa.packetSnr();  
+     _info.freqError = LoRa.packetFrequencyError();
+     return &_info;
+};

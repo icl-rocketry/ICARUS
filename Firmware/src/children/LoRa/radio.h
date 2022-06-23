@@ -1,57 +1,55 @@
-// Collects and sends data to GCS
-// Receive commands from GCS for spike
 #pragma once
-// Define the meaning of different received commands
-#define TELEMETRY_COMMAND 0x01
-
-#define telemetryPacketLength 25
-
-#define RESPONSE_DELAY 1000 // Wait before response in ms
-
 #include <Arduino.h>
-#include <LoRa.h>
 #include <SPI.h>
-#include <array>
+
+
+#include <memory>
 #include <vector>
-#include <pinDefinitions.h>
+#include <string>
+#include <queue>
+
 #include "../errorHandling.h"
-#include "../sensors/ADC.h"
-#include "../sensors/barom.h"
-#include "../sensors/gps.h"
-#include "../sensors/humid.h"
+#include "rnp_interface.h"
+#include "rnp_packet.h"
+//class for lora type devices
 
+struct RadioInterfaceInfo:public RnpInterfaceInfo{
+    size_t sendBufferSize;
+    bool sendBufferOverflow;
 
-// Telemetry packet struct
-struct telemetry_t{
-    uint8_t systemState;
-    float altitude;
-    uint32_t systemTime;
-}__attribute__((__packed__)); 
-
-class radio {
-    public:
-        radio(barom* bmp388, ADC* ads, gps* maxm8q, humid* dht11, ErrorHandler* errHand);
-        void setup();
-        void update();
-
-        telemetry_t telemetryPacket;
-       void sendTelemetry();
-
-    private:
-        void parseCommand(uint8_t command);
-        void checkIncomming();
-        void checkSendBuffer();
-        void checkTx();
-        void updateTelemetry();
-
-        std::vector<telemetry_t> _sendBuffer;
-        bool _txDone;
-        uint16_t msgCount;
-        ErrorHandler* _errHand;
-        barom* _bmp;
-        ADC* _ads;
-        gps* _maxm8q;
-        humid* _dht11;
-        uint32_t response_time;
+    int rssi;
+    float snr;
+    long freqError;
 };
 
+
+class Radio: public RnpInterface{
+    public:
+        Radio(SPIClass& spi, ErrorHandler* errHand,std::string name="Radio");
+        void setup() override;
+
+        void sendPacket(RnpPacket& data) override;
+        void update() override;
+        const RnpInterfaceInfo* getInfo() override;
+        
+
+    private:
+        
+        SPIClass& _spi; //pointer to spi class 
+        ErrorHandler* _errHand; //pointer to system status object  
+        
+
+        RadioInterfaceInfo _info;
+
+        std::queue<std::vector<uint8_t> > _sendBuffer;
+        size_t _currentSendBufferSize;
+
+        bool _txDone;
+
+        void getPacket();
+        void checkSendBuffer();
+        size_t send(std::vector<uint8_t> &data);
+        void checkTx();
+        
+  
+};

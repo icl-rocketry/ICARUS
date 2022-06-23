@@ -1,5 +1,8 @@
 // Copyright (c) Sandeep Mistry. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
+/////
+/////modified by kiran to expose isTransmitting method as public
+/////
 
 #ifndef LORA_H
 #define LORA_H
@@ -45,6 +48,8 @@ public:
   float packetSnr();
   long packetFrequencyError();
 
+  int rssi();
+
   // from Print
   virtual size_t write(uint8_t byte);
   virtual size_t write(const uint8_t *buffer, size_t size);
@@ -77,6 +82,8 @@ public:
   void disableInvertIQ();
   
   void setOCP(uint8_t mA); // Over Current Protection control
+  
+  void setGain(uint8_t gain); // Set LNA gain
 
   // deprecated
   void crc() { enableCrc(); }
@@ -90,7 +97,7 @@ public:
 
   void dumpRegisters(Stream& out);
 
-  bool isTransmitting();
+  bool isTransmitting();//modified
 
 private:
   void explicitHeaderMode();
