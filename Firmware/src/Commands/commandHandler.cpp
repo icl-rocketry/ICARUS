@@ -32,6 +32,7 @@ void CommandHandler::handleCommand(std::unique_ptr<RnpPacketSerialized> packetpt
 			TelemetryCommand(*packetptr);
 			break;
 		default:
+			Serial.println("Invalid command!")
 			//invalid command issued DELETE IT 
 			break;
 			

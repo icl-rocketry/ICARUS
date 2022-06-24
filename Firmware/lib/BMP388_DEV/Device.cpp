@@ -30,6 +30,7 @@
 */
 
 #include <Device.h>
+#include <Arduino.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 // Device Class Constructors
@@ -44,7 +45,7 @@ Device::Device(uint8_t cs) : comms(SPI_COMMS), cs(cs), spiClockSpeed(1000000) {}
 Device::Device(uint8_t sda, uint8_t scl) : comms(I2C_COMMS_DEFINED_PINS), sda(sda), scl(scl) {}	// Constructor for ESP32 I2C with user-defined pins
 Device::Device(uint8_t cs, uint8_t spiPort, SPIClass& spiClass) 										// Constructor for ESP32 HSPI communications
 	: comms(SPI_COMMS), cs(cs), spiPort(spiPort), spi(&spiClass), spiClockSpeed(1000000) {}
-Device::Device(TwoWire * I2C) : _I2C(I2C) {}
+Device::Device(TwoWire * I2C) : _I2C(I2C), comms(I2C_COMMS){}
 #endif
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -86,13 +87,13 @@ void Device::initialise()																						// Initialise device communicatio
   if (comms == I2C_COMMS)																						// Check with communications bus has been selected I2C or SPI
 	{
 		//_I2C->begin();																										// Initialise I2C communication
-		//_I2C->setClock(400000);																					// Set the SCL clock to default of 400kHz
+		_I2C->setClock(400000);																					// Set the SCL clock to default of 400kHz
 	}
 #if defined ARDUINO_ARCH_ESP8266 || defined ARDUINO_ARCH_ESP32
 	else if (comms == I2C_COMMS_DEFINED_PINS)													// Check if the ESP8266 has specified user-defined I2C pins
 	{
 		//_I2C->begin(sda, scl);																						// Initialise I2C communication with user-defined pins
-		//_I2C->setClock(400000);																					// Set the SCL clock to default of 400kHz
+		_I2C->setClock(400000);																					// Set the SCL clock to default of 400kHz
 		comms = I2C_COMMS;																							// Set the communications to standard I2C
 	}
 #endif
@@ -129,7 +130,7 @@ void Device::writeByte(uint8_t subAddress, uint8_t data)
 		_I2C->beginTransmission(address);  															// Write a byte to the sub-address using I2C
 		_I2C->write(subAddress);          
 		_I2C->write(data);                 
-		_I2C->endTransmission();          
+		_I2C->endTransmission();   
 	}
 	else // if (comms == SPI_COMMS)
 	{
