@@ -25,6 +25,7 @@ void state::initialise(){
 
     spi.begin();
     spi.setFrequency(10000000);
+    
     Wire.begin();
 
     // Initialise subsystems

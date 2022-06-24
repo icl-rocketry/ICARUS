@@ -30,6 +30,10 @@ bool gps::GPSBegin()
 }
 
 float gps::getLatitude() {
+    if (!working){
+        return 0;
+    }
+
     latitude = myGNSS.getLatitude();
     // Serial.println(" gps_lat: ");
     // Serial.print(latitude);
@@ -52,6 +56,10 @@ float gps::getLatitude() {
 //lastTime = millis(); //Update the timer
 
 float gps::getLongitude() {
+    if (!working){
+        return 0;
+    }
+
     longitude = myGNSS.getLongitude();
     // Serial.println(" gps_lng: ");
     // Serial.print(longitude);
@@ -70,6 +78,10 @@ float gps::getLongitude() {
 }
 
 float gps::getAltitude() {
+    if (!working){
+        return 0;
+    }
+
     longitude = myGNSS.getAltitude();
     // Serial.println(" gps_alt: ");
     // Serial.print(altitude);
@@ -88,6 +100,9 @@ float gps::getAltitude() {
 }
 
 byte gps::getSIV() {
+    if (!working){
+        return 0;
+    }
     SIV = myGNSS.getSIV();
     // Serial.println(" gps_siv: ");
     // Serial.print(SIV);
