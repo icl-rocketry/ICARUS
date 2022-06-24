@@ -14,13 +14,13 @@ bool gps::GPSBegin()
 {
     Wire.begin();
     if(myGNSS.begin() == true){
-        Serial.println("YAY GPS is working");
+        // Serial.println("YAY GPS is working");
         myGNSS.setI2COutput(COM_TYPE_UBX); //Set the I2C port to output UBX only (turn off NMEA noise)
         myGNSS.saveConfigSelective(VAL_CFG_SUBSEC_IOPORT); //Save (only) the communications port settings to flash and BBR
         working = true;
         return true;
     } else {
-        Serial.println(F("u-blox GNSS not detected at default I2C address. Please check wiring. Freezing."));
+        // Serial.println(F("u-blox GNSS not detected at default I2C address. Please check wiring. Freezing."));
         _errHand->raiseError(states::GPSs);
         return false;
     }
@@ -29,8 +29,8 @@ bool gps::GPSBegin()
 
 float gps::getLatitude() {
     latitude = myGNSS.getLatitude();
-    Serial.println(" gps_lat: ");
-    Serial.print(latitude);
+    // Serial.println(" gps_lat: ");
+    // Serial.print(latitude);
     return latitude;
     // if (working) {
     //     if(myGNSS.getLatitude(latitude)) {
@@ -51,8 +51,8 @@ float gps::getLatitude() {
 
 float gps::getLongitude() {
     longitude = myGNSS.getLongitude();
-    Serial.println(" gps_lng: ");
-    Serial.print(longitude);
+    // Serial.println(" gps_lng: ");
+    // Serial.print(longitude);
     return longitude;
     // if (working) {
     //     if(myGNSS.getLongitude(longitude)) {
@@ -69,8 +69,8 @@ float gps::getLongitude() {
 
 float gps::getAltitude() {
     longitude = myGNSS.getAltitude();
-    Serial.println(" gps_alt: ");
-    Serial.print(altitude);
+    // Serial.println(" gps_alt: ");
+    // Serial.print(altitude);
     return altitude;
     // if (working) {
     //     if(myGNSS.getAltitude(altitude)) {
@@ -87,9 +87,9 @@ float gps::getAltitude() {
 
 byte gps::getSIV() {
     SIV = myGNSS.getSIV();
-    Serial.println(" gps_siv: ");
-    Serial.print(SIV);
-    Serial.print("\r\n");
+    // Serial.println(" gps_siv: ");
+    // Serial.print(SIV);
+    // Serial.print("\r\n");
     return SIV;
     // if (working) {
     //     if(myGNSS.getSIV(SIV)) {

@@ -13,7 +13,7 @@ ads(&Wire)
 bool ADC::ADCBegin() 
 {
     if(ads.checkADS1115()){
-        Serial.println("YAy ADS is working");
+        // Serial.println("YAy ADS is working");
         ads.setAddr_ADS1115(ADS1115_IIC_ADDRESS1);   // 0x48
         ads.setGain(eADSGain_t::eGAIN_TWOTHIRDS);   // 2/3x gain
         ads.setMode(eMODE_SINGLE);       // single-shot mode
@@ -23,7 +23,7 @@ bool ADC::ADCBegin()
         working = true;
         return true;
     } else {
-        Serial.println("Error starting ads");
+        // Serial.println("Error starting ads");
         _errHand->raiseError(states::ADCs);
         return false;
     }
@@ -35,31 +35,31 @@ void ADC::getADC(float* ADCarray)
     {
         adc0 = ads.readVoltage(0);
         *ADCarray = adc0;
-        Serial.print("A0:");
-        Serial.print(adc0);
-        Serial.print("mV,  ");
+        // Serial.print("A0:");
+        // Serial.print(adc0);
+        // Serial.print("mV,  ");
         ADCarray++;
         adc1 = ads.readVoltage(1);
         *ADCarray = adc1;
-        Serial.print("A1:");
-        Serial.print(adc1);
-        Serial.print("mV,  ");
+        // Serial.print("A1:");
+        // Serial.print(adc1);
+        // Serial.print("mV,  ");
         ADCarray++;
         adc2 = ads.readVoltage(2);
         *ADCarray = adc2;
-        Serial.print("A2:");
-        Serial.print(adc2);
-        Serial.print("mV,  ");
+        // Serial.print("A2:");
+        // Serial.print(adc2);
+        // Serial.print("mV,  ");
         ADCarray++;
         adc3 = ads.readVoltage(3);
         *ADCarray = adc3;
-        Serial.print("A3:");
-        Serial.print(adc3);
-        Serial.println("mV");
+        // Serial.print("A3:");
+        // Serial.print(adc3);
+        // Serial.println("mV");
     }
     else
     {
-        Serial.println("ADS1115 Disconnected!");
+        // Serial.println("ADS1115 Disconnected!");
         _errHand->raiseError(states::ADCs);
     }
 

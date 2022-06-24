@@ -85,6 +85,7 @@ void USB::getPackets(){
         {
             uint8_t incomming = _serial.read();
             if (_packetBuffer == nullptr){
+            
                 continue; //avoid processing overhead of COBS if we cant store the packet anywhere so read out the packet
             }
 
@@ -98,7 +99,7 @@ void USB::getPackets(){
                 auto packet_ptr = std::make_unique<RnpPacketSerialized>(_decodedData);
                 packet_ptr->header.src_iface = getID();
                 _packetBuffer->push(std::move(packet_ptr));
-
+               
                 _receiveBuffer.clear();
                 _info.receiveBufferOverflow = false;
             }

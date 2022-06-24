@@ -34,8 +34,8 @@ bool barom::baromBegin(){
 
 float barom::getAltitude() {
     altitude = bmp388.getAltitude(altitude);
-    Serial.println(" barom_altitude: ");
-    Serial.print(altitude);
+    // Serial.println(" barom_altitude: ");
+    // Serial.print(altitude);
     // if (working) {
     //     if(bmp388.getAltitude(altitude)) {
     //         return altitude;
@@ -51,8 +51,8 @@ float barom::getAltitude() {
 
 float barom::getTemp() {
     temperature = bmp388.getTemperature(temperature);
-    Serial.print(" barom_temperature: ");
-    Serial.print(temperature);
+    // Serial.print(" barom_temperature: ");
+    // Serial.print(temperature);
     // if (working) {
     //     if(bmp388.getTemperature(temperature)) {
     //         return temperature;
@@ -67,9 +67,9 @@ float barom::getTemp() {
 }
 float barom::getPressure() {
     pressure = bmp388.getPressure(pressure);
-    Serial.print(" barom_pressure: ");
-    Serial.print(pressure);
-    Serial.print("\r\n");
+    // Serial.print(" barom_pressure: ");
+    // Serial.print(pressure);
+    // Serial.print("\r\n");
     return pressure;
 
     // if (working) {
