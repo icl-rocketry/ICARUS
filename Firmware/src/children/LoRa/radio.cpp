@@ -33,7 +33,7 @@ void Radio::setup(){
         Serial.println("lora error");
     };
     
-
+    LoRa.setSyncWord(0xF3);
     LoRa.setSignalBandwidth(250e3);
     LoRa.setSpreadingFactor(7);
     LoRa.enableCrc();

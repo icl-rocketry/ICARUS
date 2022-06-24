@@ -29,8 +29,6 @@ bool gps::GPSBegin()
 
 int32_t gps::getLatitude() {
     latitude = myGNSS.getLatitude();
-    Serial.println(" gps_lat: ");
-    Serial.print(latitude);
     return latitude;
     // if (working) {
     //     if(myGNSS.getLatitude(latitude)) {
@@ -51,8 +49,6 @@ int32_t gps::getLatitude() {
 
 int32_t gps::getLongitude() {
     longitude = myGNSS.getLongitude();
-    Serial.println(" gps_lng: ");
-    Serial.print(longitude);
     return longitude;
     // if (working) {
     //     if(myGNSS.getLongitude(longitude)) {
@@ -69,8 +65,6 @@ int32_t gps::getLongitude() {
 
 int32_t gps::getAltitude() {
     longitude = myGNSS.getAltitude();
-    Serial.println(" gps_alt: ");
-    Serial.print(altitude);
     return altitude;
     // if (working) {
     //     if(myGNSS.getAltitude(altitude)) {
@@ -87,9 +81,6 @@ int32_t gps::getAltitude() {
 
 uint8_t gps::getSIV() {
     SIV = myGNSS.getSIV();
-    Serial.println(" gps_siv: ");
-    Serial.print(SIV);
-    Serial.print("\r\n");
     return SIV;
     // if (working) {
     //     if(myGNSS.getSIV(SIV)) {

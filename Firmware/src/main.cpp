@@ -4,7 +4,7 @@
 
 state flight;
 uint32_t lastTimeChecked;
-const uint32_t delayTime =1000;
+const uint32_t delayTime =0;
 
 void setup() {
     flight.initialise();
