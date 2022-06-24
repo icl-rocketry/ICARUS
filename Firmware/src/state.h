@@ -8,6 +8,11 @@
 #include "../src/children/errorHandling.h"
 #include "../src/children/buzzer.h"
 #include "../src/children/LoRa/radio.h"
+#include "../src/children/USB/usb.h"
+#include "../src/Commands/commandHandler.h"
+
+
+
 #include <rnp_networkmanager.h>
 #include <SPI.h>
 
@@ -24,6 +29,8 @@ class state{
     gps mygps;
     humid dhtsens;
     RnpNetworkManager networkmanager;
+    CommandHandler commandhandler;
     Radio lora;
+    USB usb;
     SPIClass spi;
 };

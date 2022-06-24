@@ -13,7 +13,9 @@ bmp(&errHand),
 mygps(&errHand),
 dhtsens(&errHand),
 networkmanager(static_cast<uint8_t>(DEFAULT_ADDRESS::ROCKET),NODETYPE::LEAF,true),
-lora(spi, &errHand, "Radio")
+commandhandler(&bmp,&ads,&mygps,&dhtsens,&errHand),
+lora(spi, &errHand, "Radio"),
+usb(Serial)
 {}
 
 void state::initialise(){
@@ -27,6 +29,10 @@ void state::initialise(){
     mygps.GPSBegin();
     dhtsens.humidBegin();
     lora.setup();
+    usb.setup();
+
+    networkmanager.addInterface(&usb);
+    networkmanager.addInterface(&lora);
 
     // Set routing table
     RoutingTable flightRouting;
@@ -40,6 +46,9 @@ void state::initialise(){
     
     networkmanager.enableAutoRouteGen(false);
     networkmanager.setNoRouteAction(NOROUTE_ACTION::DUMP,{});
+    //register command handler callback
+    networkmanager.registerService(static_cast<uint8_t>(DEFAULT_SERVICES::COMMAND),commandhandler.getCallback()); 
+
 }
 
 void state::update(){
