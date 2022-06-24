@@ -14,8 +14,8 @@ ads(&errHand, &I2C),
 bmp(&errHand, &I2C),
 mygps(&errHand, &I2C),
 dhtsens(&errHand),
-networkmanager(static_cast<uint8_t>(DEFAULT_ADDRESS::ROCKET),NODETYPE::LEAF,true),
-commandhandler(&bmp,&ads,&mygps,&dhtsens,&errHand),
+networkmanager(static_cast<uint8_t>(DEFAULT_ADDRESS::ROCKET),NODETYPE::LEAF,false),
+commandhandler(&bmp,&ads,&mygps,&dhtsens,&errHand,networkmanager),
 lora(spi, &errHand, "Radio"),
 usb(Serial)
 {}

@@ -18,15 +18,15 @@
 
 class CommandHandler {
     public:
-        CommandHandler(barom* bmp388, ADC* ads, gps* myGNSS, humid* dht, ErrorHandler* errHand);
+        CommandHandler(barom* bmp388, ADC* ads, gps* myGNSS, humid* dht, ErrorHandler* errHand,RnpNetworkManager & netman);
         
         std::function<void(std::unique_ptr<RnpPacketSerialized>)> getCallback();
 
         static constexpr uint8_t serviceID = static_cast<uint8_t>(DEFAULT_SERVICES::COMMAND); // serivce ID for network manager
-        RnpNetworkManager networkmanager;   
         void handleCommand(std::unique_ptr<RnpPacketSerialized> packetptr);
         void TelemetryCommand(const RnpPacketSerialized& packet);
     private:
+        RnpNetworkManager& networkmanager;   
         float adcoutput[4];
         ErrorHandler* _errHand;
         barom* _bmp388;

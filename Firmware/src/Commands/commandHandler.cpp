@@ -16,7 +16,9 @@
 
 
 
-CommandHandler::CommandHandler(barom* bmp388, ADC* ads, gps* myGNSS, humid* dht, ErrorHandler* errHand){
+CommandHandler::CommandHandler(barom* bmp388, ADC* ads, gps* myGNSS, humid* dht, ErrorHandler* errHand,RnpNetworkManager& netman):
+networkmanager(netman)
+{
 _bmp388 = bmp388;
 _ads = ads;
 _myGNSS = myGNSS;
