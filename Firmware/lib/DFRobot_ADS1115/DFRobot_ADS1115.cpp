@@ -30,15 +30,15 @@ void DFRobot_ADS1115::setAddr_ADS1115(uint8_t i2cAddress)
  */
 void DFRobot_ADS1115::init()
 {
-  Wire.begin();
+  //Wire.begin();
 }
 
 
 bool DFRobot_ADS1115::checkADS1115()
 {
     uint8_t error;
-    Wire.beginTransmission(ads_i2cAddress);
-    error = Wire.endTransmission();
+    _pWire->beginTransmission(ads_i2cAddress);
+    error = _pWire->endTransmission();
     if(error == 0){
         return true;
     }else{
@@ -249,7 +249,7 @@ int16_t DFRobot_ADS1115::comparatorVoltage(uint8_t channel)
 
 void DFRobot_ADS1115::writeReg(uint8_t i2cAddress, uint8_t reg, uint8_t *pBuf, uint16_t len)
 {
-    _pWire->begin();
+    //_pwire->begin();
     _pWire->beginTransmission(i2cAddress);
     _pWire->write(reg);
     for(uint16_t i = 0; i < len; i ++)
@@ -259,7 +259,7 @@ void DFRobot_ADS1115::writeReg(uint8_t i2cAddress, uint8_t reg, uint8_t *pBuf, u
 
 void DFRobot_ADS1115::readReg(uint8_t i2cAddress, uint8_t reg, uint8_t *pBuf, uint16_t len)
 {
-    _pWire->begin();
+    //_pwire->begin();
     _pWire->beginTransmission(i2cAddress);
     _pWire->write(reg);
     if(_pWire->endTransmission() != 0)

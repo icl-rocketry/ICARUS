@@ -4,16 +4,16 @@
 #include <SparkFun_u-blox_GNSS_Arduino_Library.h> //http://librarymanager/All#SparkFun_u-blox_GNSS
 
 
-gps::gps(ErrorHandler* errHand):
+gps::gps(ErrorHandler* errHand, TwoWire* I2C):
 myGNSS()
 {
     _errHand = errHand;
+    _I2C = I2C;
 }
 
 bool gps::GPSBegin()
 {
-    Wire.begin();
-    if(myGNSS.begin() == true){
+    if(myGNSS.begin(*_I2C, 0x42) == true){
         Serial.println("YAY GPS is working");
         myGNSS.setI2COutput(COM_TYPE_UBX); //Set the I2C port to output UBX only (turn off NMEA noise)
         myGNSS.saveConfigSelective(VAL_CFG_SUBSEC_IOPORT); //Save (only) the communications port settings to flash and BBR
@@ -27,7 +27,7 @@ bool gps::GPSBegin()
   
 }
 
-float gps::getLatitude() {
+int32_t gps::getLatitude() {
     latitude = myGNSS.getLatitude();
     Serial.println(" gps_lat: ");
     Serial.print(latitude);
@@ -49,7 +49,7 @@ float gps::getLatitude() {
 //and this to update timer
 //lastTime = millis(); //Update the timer
 
-float gps::getLongitude() {
+int32_t gps::getLongitude() {
     longitude = myGNSS.getLongitude();
     Serial.println(" gps_lng: ");
     Serial.print(longitude);
@@ -67,7 +67,7 @@ float gps::getLongitude() {
     // } else {return 0;}
 }
 
-float gps::getAltitude() {
+int32_t gps::getAltitude() {
     longitude = myGNSS.getAltitude();
     Serial.println(" gps_alt: ");
     Serial.print(altitude);
@@ -85,7 +85,7 @@ float gps::getAltitude() {
     // } else {return 0;}
 }
 
-byte gps::getSIV() {
+uint8_t gps::getSIV() {
     SIV = myGNSS.getSIV();
     Serial.println(" gps_siv: ");
     Serial.print(SIV);

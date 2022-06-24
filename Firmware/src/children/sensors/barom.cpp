@@ -1,13 +1,14 @@
 #include <Arduino.h>
 #include "barom.h"
 #include "BMP388_DEV.h"
+#include <pinDefinitions.h>
 
 #define numberofmeasurements 10
 #define timestandby 80
 #define altitudetolerance 3
 
-barom::barom(ErrorHandler* errHand):
-    bmp388(SDA_PIN,SCL_PIN)
+barom::barom(ErrorHandler* errHand, TwoWire* I2C):
+    bmp388(I2C)
  {
     FIFOenabled = false;
     _errHand = errHand;

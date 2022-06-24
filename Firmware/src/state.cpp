@@ -3,14 +3,16 @@
 
 #include "rnp_default_address.h"
 #include "rnp_routingtable.h"
+#include <pinDefinitions.h>
 
 state::state():
 buzz(),
+I2C(0),
 errHand(&buzz),
 sd(&bmp, &ads, &mygps, &dhtsens, &errHand),
-ads(&errHand),
-bmp(&errHand),
-mygps(&errHand),
+ads(&errHand, &I2C),
+bmp(&errHand, &I2C),
+mygps(&errHand, &I2C),
 dhtsens(&errHand),
 networkmanager(static_cast<uint8_t>(DEFAULT_ADDRESS::ROCKET),NODETYPE::LEAF,true),
 commandhandler(&bmp,&ads,&mygps,&dhtsens,&errHand),
@@ -23,6 +25,7 @@ void state::initialise(){
     Serial.println("Initialising classes...");
     
     // Initialise subsystems
+    I2C.begin(SDA_PIN, SCL_PIN);
     sd.begin();
     ads.ADCBegin();
     bmp.baromBegin();

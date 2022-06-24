@@ -61,6 +61,7 @@ class Device{
 		Device(uint8_t cs);																					// Device object for SPI operation
 #ifdef ARDUINO_ARCH_ESP32
 		Device(uint8_t sda, uint8_t scl);														// Device object for ESP32 I2C operation with user-defined pins
+		Device(TwoWire* I2C);														// Device object for ESP32 I2C operation with user-defined pins
 		Device(uint8_t cs, uint8_t spiPort, SPIClass& spiClass);		// Device object for ESP32 HSPI operation with supplied SPI object
 #endif		
 		void setClock(uint32_t clockSpeed);													// Set the I2C/SPI clock speed
@@ -77,6 +78,7 @@ class Device{
 		uint8_t readByte(uint8_t subAddress);												// I2C and SPI read byte wrapper function
 		void readBytes(uint8_t subAddress, uint8_t* dest, uint16_t count);		// I2C and SPI read bytes wrapper function	
 	private:
+		TwoWire* _I2C;
 		Comms comms;																								// Communications bus: I2C or SPI
 		uint8_t address;																						// The device I2C address
 		uint8_t cs;																									// The SPI chip select pin

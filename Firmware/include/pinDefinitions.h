@@ -7,7 +7,7 @@
 #define RADIO_IRQ 12
 #define RADIO_RESET 14
 #define SDA_PIN 21
-#define SCL_PIN 22
+#define SCL_PIN 32
 #define DHT_PIN 4
 #define LORA_CS 25
 #define LORA_RESET 26
@@ -17,5 +17,5 @@
 
 //DHT11: pin 4
 //SD: pin 5 (CS), 18 (CLK), 19 (MISO), 23 (MOSI)  SPI
-//ADC: pin 21 (SDA), pin 22 (SCL)
+//ADC: pin 21 (SDA), pin 32 (SCL)
  

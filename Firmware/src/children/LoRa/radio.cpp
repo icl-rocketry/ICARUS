@@ -27,8 +27,7 @@ _txDone(true)
 void Radio::setup(){
     //setup lora module
     LoRa.setPins(LORA_CS,LORA_RESET);
-    LoRa.setSPI(_spi);
-    LoRa.begin(868E6);
+    //LoRa.setSPI(_spi);
     if (!LoRa.begin(868E6)){
         _errHand->raiseError(states::LoRas); 
         Serial.println("lora error");

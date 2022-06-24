@@ -4,8 +4,8 @@
 #include "ADC.h"
 
 
-ADC::ADC(ErrorHandler* errHand):
-ads(&Wire)
+ADC::ADC(ErrorHandler* errHand, TwoWire* I2C):
+ads(I2C)
 {
     _errHand = errHand;
 }

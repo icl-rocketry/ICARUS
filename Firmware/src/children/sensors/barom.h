@@ -10,7 +10,7 @@
 
 class barom {
     public:
-        barom(ErrorHandler* errHand);
+        barom(ErrorHandler* errHand, TwoWire* I2C);
         BMP388_DEV bmp388;
         ErrorHandler* _errHand;
         bool FIFOenabled;

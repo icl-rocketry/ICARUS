@@ -22,6 +22,7 @@ class state{
     void initialise();
     void update();
     buzzer buzz;
+    TwoWire I2C;
     ErrorHandler errHand;
     sd_card_log sd;
     ADC ads;

@@ -217,6 +217,7 @@ class BMP388_DEV : public Device {															// Derive the BMP388_DEV class 
 #ifdef ARDUINO_ARCH_ESP32
 		BMP388_DEV(uint8_t sda, uint8_t scl);												// BMP388_DEV object for ESP32 I2C operation with user-defined pins
 		BMP388_DEV(uint8_t cs, uint8_t spiPort, SPIClass& spiClass);	// BMP388_DEV object for SPI1 with supplied SPIClass object
+		BMP388_DEV(TwoWire* I2C);
 #endif
 		uint8_t begin(Mode mode = SLEEP_MODE, 												// Initialise the barometer with arguments
 									Oversampling presOversampling = OVERSAMPLING_X16, 
@@ -282,6 +283,7 @@ class BMP388_DEV : public Device {															// Derive the BMP388_DEV class 
 		uint8_t getStatusReg();																			// Read the status register
 	protected:
 	private:
+		TwoWire* _I2C;
 		void setMode(Mode mode);																		// Set the barometer mode
 		void setOversamplingRegister(Oversampling presOversampling, // Set the BMP388 oversampling register
 																 Oversampling tempOversamping);		

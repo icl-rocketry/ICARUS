@@ -44,6 +44,7 @@ Device::Device(uint8_t cs) : comms(SPI_COMMS), cs(cs), spiClockSpeed(1000000) {}
 Device::Device(uint8_t sda, uint8_t scl) : comms(I2C_COMMS_DEFINED_PINS), sda(sda), scl(scl) {}	// Constructor for ESP32 I2C with user-defined pins
 Device::Device(uint8_t cs, uint8_t spiPort, SPIClass& spiClass) 										// Constructor for ESP32 HSPI communications
 	: comms(SPI_COMMS), cs(cs), spiPort(spiPort), spi(&spiClass), spiClockSpeed(1000000) {}
+Device::Device(TwoWire * I2C) : _I2C(I2C) {}
 #endif
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -54,7 +55,7 @@ void Device::setClock(uint32_t clockSpeed)													// Set the I2C or SPI clo
 {
 	if (comms == I2C_COMMS)
 	{
-		Wire.setClock(clockSpeed);
+		_I2C->setClock(clockSpeed);
 	}
 	else
 	{
@@ -84,14 +85,14 @@ void Device::initialise()																						// Initialise device communicatio
 {
   if (comms == I2C_COMMS)																						// Check with communications bus has been selected I2C or SPI
 	{
-		Wire.begin();																										// Initialise I2C communication
-		Wire.setClock(400000);																					// Set the SCL clock to default of 400kHz
+		//_I2C->begin();																										// Initialise I2C communication
+		//_I2C->setClock(400000);																					// Set the SCL clock to default of 400kHz
 	}
 #if defined ARDUINO_ARCH_ESP8266 || defined ARDUINO_ARCH_ESP32
 	else if (comms == I2C_COMMS_DEFINED_PINS)													// Check if the ESP8266 has specified user-defined I2C pins
 	{
-		Wire.begin(sda, scl);																						// Initialise I2C communication with user-defined pins
-		Wire.setClock(400000);																					// Set the SCL clock to default of 400kHz
+		//_I2C->begin(sda, scl);																						// Initialise I2C communication with user-defined pins
+		//_I2C->setClock(400000);																					// Set the SCL clock to default of 400kHz
 		comms = I2C_COMMS;																							// Set the communications to standard I2C
 	}
 #endif
@@ -125,10 +126,10 @@ void Device::writeByte(uint8_t subAddress, uint8_t data)
 {
   if (comms == I2C_COMMS)
 	{
-		Wire.beginTransmission(address);  															// Write a byte to the sub-address using I2C
-		Wire.write(subAddress);          
-		Wire.write(data);                 
-		Wire.endTransmission();          
+		_I2C->beginTransmission(address);  															// Write a byte to the sub-address using I2C
+		_I2C->write(subAddress);          
+		_I2C->write(data);                 
+		_I2C->endTransmission();          
 	}
 	else // if (comms == SPI_COMMS)
 	{
@@ -146,11 +147,11 @@ uint8_t Device::readByte(uint8_t subAddress)												// Read a byte from the 
   uint8_t data = 0x00;
 	if (comms == I2C_COMMS)																		
 	{
-		Wire.beginTransmission(address);         
-		Wire.write(subAddress);                  
-		Wire.endTransmission(false);             
-		Wire.requestFrom(address, (uint8_t)1);	 
-		data = Wire.read();                      
+		_I2C->beginTransmission(address);         
+		_I2C->write(subAddress);                  
+		_I2C->endTransmission(false);             
+		_I2C->requestFrom(address, (uint8_t)1);	 
+		data = _I2C->read();                      
 	}
 	else // if (comms == SPI_COMMS)
 	{
@@ -169,14 +170,14 @@ void Device::readBytes(uint8_t subAddress, uint8_t* data, uint16_t count)
 {  
   if (comms == I2C_COMMS)																						// Read "count" bytes into the "data" buffer using I2C
 	{
-		Wire.beginTransmission(address);          
-		Wire.write(subAddress);                   
-		Wire.endTransmission(false);              
+		_I2C->beginTransmission(address);          
+		_I2C->write(subAddress);                   
+		_I2C->endTransmission(false);              
 		uint8_t i = 0;
-		Wire.requestFrom(address, (uint8_t)count);  
-		while (Wire.available()) 
+		_I2C->requestFrom(address, (uint8_t)count);  
+		while (_I2C->available()) 
 		{
-			data[i++] = Wire.read();          
+			data[i++] = _I2C->read();          
 		}
 	}
 	else // if (comms == SPI_COMMS)		
