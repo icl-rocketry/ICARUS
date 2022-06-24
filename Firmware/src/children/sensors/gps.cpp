@@ -12,11 +12,11 @@ myGNSS()
 
 bool gps::GPSBegin()
 {
-    Wire.begin();
-    if(myGNSS.begin() == true){
+    
+    if(myGNSS.begin(Wire) == true){
         // Serial.println("YAY GPS is working");
         myGNSS.setI2COutput(COM_TYPE_UBX); //Set the I2C port to output UBX only (turn off NMEA noise)
-        myGNSS.saveConfigSelective(VAL_CFG_SUBSEC_IOPORT); //Save (only) the communications port settings to flash and BBR
+        // myGNSS.saveConfigSelective(VAL_CFG_SUBSEC_IOPORT); //Save (only) the communications port settings to flash and BBR
         working = true;
         return true;
     } else {
@@ -24,6 +24,8 @@ bool gps::GPSBegin()
         _errHand->raiseError(states::GPSs);
         return false;
     }
+    myGNSS.setNavigationFrequency(10); //Set output to 10 times a second
+    myGNSS.setAutoPVT(true);
   
 }
 

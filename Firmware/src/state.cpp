@@ -15,17 +15,22 @@ dhtsens(&errHand),
 networkmanager(static_cast<uint8_t>(DEFAULT_ADDRESS::ROCKET),NODETYPE::LEAF,false),
 commandhandler(&bmp,&ads,&mygps,&dhtsens,&errHand,networkmanager),
 lora(spi, &errHand, "Radio"),
-usb(Serial)
+usb(Serial),
+spi(HSPI)
 {}
 
 void state::initialise(){
     Serial.begin(115200);
     Serial.println("Initialising classes...");
-    
+
+    spi.begin();
+    spi.setFrequency(10000000);
+    Wire.begin();
+
     // Initialise subsystems
     sd.begin();
     ads.ADCBegin();
-    bmp.baromBegin();
+    // bmp.baromBegin();
     mygps.GPSBegin();
     dhtsens.humidBegin();
     lora.setup();
