@@ -8,7 +8,7 @@
 #define altitudetolerance 3
 
 barom::barom(ErrorHandler* errHand, TwoWire* I2C):
-    bmp388(I2C)
+bmp388(I2C)
  {
     FIFOenabled = false;
     _errHand = errHand;

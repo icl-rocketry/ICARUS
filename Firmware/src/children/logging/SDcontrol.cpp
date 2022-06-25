@@ -26,14 +26,14 @@ void sd_card_log::begin(){
     uint8_t cardType = SD.cardType();
     if (cardType == CARD_NONE)
     {
-        Serial.println("No SD card attached");
+        //Serial.println("No SD card attached");
         _errHand->raiseError(states::SDCARDs);
         return;
     }
     Serial.println("Initializing SD card...");
     if (!SD.begin(SD_CS))
     {
-        Serial.println("ERROR - SD card initialization failed!");
+        //Serial.println("ERROR - SD card initialization failed!");
         _errHand->raiseError(states::SDCARDs);
         return; // init failed
     }
@@ -41,15 +41,15 @@ void sd_card_log::begin(){
 
 void sd_card_log::open_check(){
 File file = SD.open("/data.txt");
-if (!file)
-{
-    Serial.println("File doesn't exist");
-    Serial.println("Creating file...");
-}
-else
-{
-    Serial.println("File already exists");
-}
+//if (!file)
+//{
+    //Serial.println("File doesn't exist");
+    //Serial.println("Creating file...");
+//}
+//else
+//{
+    //Serial.println("File already exists");
+//}
 file.close();
 }
 
@@ -83,24 +83,25 @@ void sd_card_log::logSDCard(){
   "," + String(dhthumid) + "," + String(dhttemp) +"," + String(dhtheatindex)+ 
                 "," + String(SystemState) + "\r\n";
   //Serial.print("Save data: ");
-  //Serial.println(dataMessage);
+  Serial.println(dataMessage);
   appendFile(SD, "/data.txt", dataMessage.c_str());
 }
 
 void sd_card_log::appendFile(fs::FS &fs, const char * path, const char * message) {
   Serial.printf("Appending to file: %s\n", path);
   File file = fs.open(path, FILE_APPEND);
-  if(!file) {
+  //if(!file) {
     // Serial.println("Failed to open file for appending");
-    _errHand->raiseError(states::SDCARDs);
-    return;
-  }
-  if(file.print(message)) {
-    //Serial.println("Message appended");
-  } else {
+  //  _errHand->raiseError(states::SDCARDs);
+  //  return;
+  //}
+  file.print(message);
+  //if(file.print(message)) {
+  //  Serial.println("Message appended");
+  //} else {
     //Serial.println("Append failed");
-    _errHand->raiseError(states::SDCARDs);
-  }
+  //  _errHand->raiseError(states::SDCARDs);
+  //}
   file.close();
 }
 
@@ -112,11 +113,12 @@ void sd_card_log::writeFile(fs::FS &fs, const char * path, const char * message)
     _errHand->raiseError(states::SDCARDs);
     return;
   }
-  if(file.print(message)) {
+  file.print(message);
+  //if(file.print(message)) {
     //Serial.println("File written");
-  } else {
+ // } else {
     //Serial.println("Write failed");
-    _errHand->raiseError(states::SDCARDs);
-  }
+  //  _errHand->raiseError(states::SDCARDs);
+  //}
   file.close();
 }

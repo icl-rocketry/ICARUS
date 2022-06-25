@@ -14,20 +14,20 @@ myGNSS()
 bool gps::GPSBegin()
 {
     if(myGNSS.begin(*_I2C, 0x42) == true){
-        Serial.println("YAY GPS is working");
+        //Serial.println("YAY GPS is working");
         myGNSS.setI2COutput(COM_TYPE_UBX); //Set the I2C port to output UBX only (turn off NMEA noise)
         myGNSS.saveConfigSelective(VAL_CFG_SUBSEC_IOPORT); //Save (only) the communications port settings to flash and BBR
         working = true;
         return true;
     } else {
-        Serial.println(F("u-blox GNSS not detected at default I2C address. Please check wiring. Freezing."));
+        //Serial.println(F("u-blox GNSS not detected at default I2C address. Please check wiring. Freezing."));
         _errHand->raiseError(states::GPSs);
         return false;
     }
   
 }
 
-int32_t gps::getLatitude() {
+float gps::getLatitude() {
     latitude = myGNSS.getLatitude();
     return latitude;
     // if (working) {
@@ -47,7 +47,7 @@ int32_t gps::getLatitude() {
 //and this to update timer
 //lastTime = millis(); //Update the timer
 
-int32_t gps::getLongitude() {
+float gps::getLongitude() {
     longitude = myGNSS.getLongitude();
     return longitude;
     // if (working) {
@@ -63,7 +63,7 @@ int32_t gps::getLongitude() {
     // } else {return 0;}
 }
 
-int32_t gps::getAltitude() {
+long gps::getAltitude() {
     longitude = myGNSS.getAltitude();
     return altitude;
     // if (working) {

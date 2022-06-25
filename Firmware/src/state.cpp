@@ -22,7 +22,7 @@ usb(Serial)
 
 void state::initialise(){
     Serial.begin(115200);
-    Serial.println("Initialising classes...");
+    //Serial.println("Initialising classes...");
     
     // Initialise subsystems
     I2C.begin(SDA_PIN, SCL_PIN);

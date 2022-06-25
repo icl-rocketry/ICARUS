@@ -13,7 +13,7 @@ ads(I2C)
 bool ADC::ADCBegin() 
 {
     if(ads.checkADS1115()){
-        Serial.println("YAy ADS is working");
+        //Serial.println("YAy ADS is working");
         ads.setAddr_ADS1115(ADS1115_IIC_ADDRESS1);   // 0x48
         ads.setGain(eADSGain_t::eGAIN_TWOTHIRDS);   // 2/3x gain
         ads.setMode(eMODE_SINGLE);       // single-shot mode
@@ -23,7 +23,7 @@ bool ADC::ADCBegin()
         working = true;
         return true;
     } else {
-        Serial.println("Error starting ads");
+        //Serial.println("Error starting ads");
         _errHand->raiseError(states::ADCs);
         return false;
     }
