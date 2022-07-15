@@ -1650,7 +1650,7 @@
   (symbol (lib_id "Device:R_Small") (at 121.92 69.85 270) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 7c25d545-9e37-4576-aab2-f8103a062bb4)
-    (property "Reference" "R24" (id 0) (at 121.92 64.8716 90))
+    (property "Reference" "R24" (id 0) (at 121.7676 66.3956 90))
     (property "Value" "5.1k" (id 1) (at 121.92 67.183 90))
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (id 2) (at 121.92 69.85 0)
       (effects (font (size 1.27 1.27)) hide)
