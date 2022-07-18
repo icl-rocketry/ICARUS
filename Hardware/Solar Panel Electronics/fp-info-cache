@@ -1,4 +1,4 @@
-20208359968811753
+20213333651422750
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -85645,6 +85645,20 @@ Axes_Magnetic_Lefthand_Xdown
 0
 0
 iclr
+Bourns_SRP1250
+
+
+0
+2
+2
+iclr
+Bourns_SRP1270
+
+
+0
+2
+2
+iclr
 Chad
 
 
@@ -85658,6 +85672,13 @@ DIO_V3PAN50-M3_I
 0
 2
 2
+iclr
+Dom_License
+
+
+0
+0
+0
 iclr
 IC_LTC4451AV#TRMPBF
 

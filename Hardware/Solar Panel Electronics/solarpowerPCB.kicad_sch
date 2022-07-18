@@ -3250,7 +3250,7 @@
     (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-00006248f76c"
       (reference "#PWR0102") (unit 1) (value "GND") (footprint "")
     )
-    (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-00006249ead3"
+    (path "/00000000-0000-0000-0000-0000624b2440/410a7336-ccfa-4ab9-843b-df1cb80f40d6"
       (reference "#PWR0103") (unit 1) (value "GND") (footprint "")
     )
     (path "/52f832d9-af25-4ede-b90f-4638559b1932"
@@ -3610,6 +3610,12 @@
     (path "/b5ffdb69-0d10-4e56-a878-ea9fd431e3ac"
       (reference "JP1") (unit 1) (value "SolderJumper_2_Open") (footprint "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm")
     )
+    (path "/00000000-0000-0000-0000-0000624b2440/eee343b0-95fe-4edf-95bc-253d7c264814"
+      (reference "JP2") (unit 1) (value "SolderJumper_2_Bridged") (footprint "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm")
+    )
+    (path "/00000000-0000-0000-0000-0000624b2440/29f19195-5609-48c2-bf6b-9b3768d28dfb"
+      (reference "JP3") (unit 1) (value "SolderJumper_2_Bridged") (footprint "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm")
+    )
     (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-0000624961ae"
       (reference "L1") (unit 1) (value "10u") (footprint "Inductor_SMD:L_0603_1608Metric")
     )
@@ -3807,9 +3813,6 @@
     )
     (path "/00000000-0000-0000-0000-0000624b2440/00000000-0000-0000-0000-00006246eb4f"
       (reference "U3") (unit 1) (value "LT3652EDD") (footprint "Package_DFN_QFN:DFN-12-1EP_3x3mm_P0.45mm_EP1.66x2.38mm")
-    )
-    (path "/00000000-0000-0000-0000-0000624b2440/db6e1562-9e50-4370-99b3-eb014d4d708e"
-      (reference "U4") (unit 1) (value "LTC4411ES5TRMPBF") (footprint "LTC4411:Linear_Technology-LTC4411ES5TRMPBF-Level_A")
     )
     (path "/761ca562-7e61-4873-a476-3f17aaa1ae77/382aa5e0-6464-4fb9-aeff-2552de9d6681"
       (reference "U5") (unit 1) (value "INTERFACE-CP2102-GMR(QFN28)") (footprint "iclr:QFN28G_0.5-5X5MM")
