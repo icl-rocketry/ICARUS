@@ -1514,7 +1514,7 @@
     (property "Value" "10u" (id 1) (at 129.5908 145.923 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Inductor_SMD:L_0603_1608Metric" (id 2) (at 128.27 144.78 0)
+    (property "Footprint" "Inductor_SMD:L_0805_2012Metric" (id 2) (at 128.27 144.78 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 128.27 144.78 0)
