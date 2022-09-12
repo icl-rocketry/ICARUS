@@ -6,28 +6,25 @@
 #pragma once
 
 #include "Arduino.h"
-#include "buzzer.h"
 
 class buzzer;
 
 // This snippet will be called any time there is an error update from any of the children. Not usable rn.
 enum states
 {
-    ADCs = 1, BAROMs = 2, HUMIDs = 3, GPSs = 4, SDCARDs = 5, LoRas = 6
-};
+    ADCs = 1,SDCARDs = 5
+    };
 
 class ErrorHandler
 {
 public:
     uint8_t get_state(); //default state = 0 or number if there is an error
     void raiseError(states component); //will be called by the objects
-    void BuzzMe(); //buzzer to be activated
-    ErrorHandler(buzzer* buzz);
+    ErrorHandler();
     ~ErrorHandler();
 
 private:
     uint8_t currentState;
-    buzzer* _buzz;
 };
 
 

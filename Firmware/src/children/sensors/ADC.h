@@ -7,7 +7,7 @@
 class ADC{
     
     public:
-    ADC(ErrorHandler* errHand, TwoWire* I2C);
+    ADC(ErrorHandler* errHand);
     DFRobot_ADS1115 ads;
     ErrorHandler* _errHand;
     bool ADCBegin();
